@@ -1,0 +1,6 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[2898],{2663:function(e,n,t){(window.__NEXT_P=window.__NEXT_P||[]).push(["/504",function(){return t(4758)}])},4758:function(e,n,t){"use strict";t.r(n),t.d(n,{default:function(){return l}});var i=t(5893);/**
+ * @license lucide-react v0.363.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let r=(0,t(5711).Z)("Unlink",[["path",{d:"m18.84 12.25 1.72-1.71h-.02a5.004 5.004 0 0 0-.12-7.07 5.006 5.006 0 0 0-6.95 0l-1.72 1.71",key:"yqzxt4"}],["path",{d:"m5.17 11.75-1.71 1.71a5.004 5.004 0 0 0 .12 7.07 5.006 5.006 0 0 0 6.95 0l1.71-1.71",key:"4qinb0"}],["line",{x1:"8",x2:"8",y1:"2",y2:"5",key:"1041cp"}],["line",{x1:"2",x2:"5",y1:"8",y2:"8",key:"14m1p5"}],["line",{x1:"16",x2:"16",y1:"19",y2:"22",key:"rzdirn"}],["line",{x1:"19",x2:"22",y1:"16",y2:"16",key:"ox905f"}]]);function l(){return(0,i.jsxs)("div",{className:"flex items-center justify-center",style:{height:"var(--container-height)"},children:[(0,i.jsx)("h2",{className:"border-r p-[24px] text-3xl font-bold tracking-tight",children:(0,i.jsx)(r,{className:"inline-block size-12"})}),(0,i.jsx)("h2",{className:"p-[24px] text-xl tracking-tight",children:"Sunucuya erişilemiyor."})]})}}},function(e){e.O(0,[2888,9774,179],function(){return e(e.s=2663)}),_N_E=e.O()}]);

@@ -1,0 +1,34 @@
+{
+    "name": "beebmx/blade",
+    "description": "The standalone version of Laravel's Blade templating engine for use outside of Laravel.",
+    "keywords": ["laravel", "blade", "template", "view", "render"],
+    "license" : "MIT",
+    "authors": [
+        {
+            "name": "Jens Segers",
+            "homepage": "https://jenssegers.com"
+        },
+        {
+            "name": "Fernando Gutierrez",
+            "homepage": "https://beeb.mx"
+        }
+    ],
+    "require": {
+        "php": "^8.0.2",
+        "illuminate/view": "^7.0|^8.0|^9.0",
+        "illuminate/config": "^9.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Beebmx\\Blade\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

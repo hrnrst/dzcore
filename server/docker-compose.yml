@@ -1,0 +1,123 @@
+version: '3.8'
+services:
+  limancore:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: always
+    environment:
+      # Redis settings
+      - REDIS_HOST=liman-redis
+      - REDIS_PASS=${DB_PASS}
+      - REDIS_PORT=6379
+      # DB settings
+      # For using Patroni or another Postgresql Cluster
+      - DB_HOST=liman-db
+      - DB_DATABASE=liman
+      - DB_USERNAME=liman
+      - DB_PORT=5432
+      - DB_PASS=${DB_PASS}
+      # Nginx settings
+      - NGINX_PORT=443
+    container_name: liman-core
+    tty: true
+    ports:
+      - '443:443'
+      - '3000:3000'
+    volumes: 
+      - /c/Users/harun.kucuk/liman/server/app:/liman/server/app
+      - /c/Users/harun.kucuk/liman/server/routes:/liman/server/routes
+      - /c/Users/harun.kucuk/liman/ui:/liman/ui
+      - /c/Users/harun.kucuk/liman/scripts:/liman/scripts
+      - /c/Users/harun.kucuk/liman/extensions:/liman/extensions
+      - certs:/usr/local/share/ca-certificates
+    networks:
+      - liman-net
+    dns:
+      - 127.0.0.1
+      - 8.8.8.8
+      - 8.8.4.4
+      # Add active directory DNS(s) for using Domain extension and LDAP on Liman
+  db:
+    image: postgres:15
+    container_name: liman-db
+    restart: always
+    environment:
+      - POSTGRES_USER=liman
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=liman
+    volumes: 
+      - db:/var/lib/postgresql/data
+    healthcheck :
+      test: [ "CMD", "pg_isready", "-q", "-d", "liman", "-U", "liman" ]
+      interval : 5s
+      timeout : 5s
+      retries : 5
+    networks:
+      - liman-net
+  redis:
+    image: redis
+    container_name: liman-redis
+    environment:
+      - REDIS_PASSWORD=${DB_PASS}
+      - REDIS_DISABLE_COMMANDS=CONFIG
+    command: > 
+      --requirepass ${DB_PASS} --protected-mode yes
+    networks:
+      - liman-net
+  webssh:
+    image: limanmys/webssh:latest
+    restart: always
+    container_name: liman-webssh
+    networks:
+      - liman-net
+
+  guacd:
+    image: guacamole/guacd
+    container_name: guacd
+    restart: always
+
+  mysql:
+    image: mysql:5.7
+    container_name: guac-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: guacamole_db
+      MYSQL_USER: guacamole_user
+      MYSQL_PASSWORD: guacpass
+    volumes:
+      - /c/Users/harun.kucuk/liman/server/init.sql:/docker-entrypoint-initdb.d/initdb.sql
+
+  guacamole:
+    image: guacamole/guacamole
+    container_name: guacamole
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      GUACD_HOSTNAME: guacd
+      MYSQL_HOSTNAME: mysql
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: guacamole_db
+      MYSQL_USER: guacamole_user
+      MYSQL_PASSWORD: guacpass
+
+volumes:
+  # Persistent Postgresql Database
+  db:
+    driver: local
+  # Persist Core Files
+  core:
+    driver: local
+  # Persist Linux System Certificates
+  certs:
+    driver: local
+
+networks:
+  liman-net:
+    name: liman-net
+    driver: bridge

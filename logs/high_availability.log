@@ -1,0 +1,332 @@
+  2025-03-23 12:50:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 12:50:02 App\Jobs\HighAvailabilitySyncer ............ 1.79ms DONE
+  2025-03-23 12:55:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 12:55:02 App\Jobs\HighAvailabilitySyncer ............ 0.52ms DONE
+  2025-03-23 13:00:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 13:00:01 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-23 13:05:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 13:05:02 App\Jobs\HighAvailabilitySyncer ............ 0.65ms DONE
+  2025-03-23 13:10:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 13:10:02 App\Jobs\HighAvailabilitySyncer ............ 0.50ms DONE
+  2025-03-23 13:15:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 13:15:01 App\Jobs\HighAvailabilitySyncer ............ 0.43ms DONE
+  2025-03-23 13:20:03 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 13:20:03 App\Jobs\HighAvailabilitySyncer ............ 0.44ms DONE
+  2025-03-23 13:25:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 13:25:02 App\Jobs\HighAvailabilitySyncer ............ 0.54ms DONE
+  2025-03-23 13:30:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 13:30:02 App\Jobs\HighAvailabilitySyncer ............ 0.59ms DONE
+  2025-03-23 13:35:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 13:35:01 App\Jobs\HighAvailabilitySyncer ............ 0.54ms DONE
+  2025-03-23 13:40:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 13:40:02 App\Jobs\HighAvailabilitySyncer ............ 0.58ms DONE
+  2025-03-23 13:45:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 13:45:01 App\Jobs\HighAvailabilitySyncer ............ 0.49ms DONE
+  2025-03-23 13:50:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 13:50:02 App\Jobs\HighAvailabilitySyncer ............ 0.61ms DONE
+  2025-03-23 13:55:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 13:55:02 App\Jobs\HighAvailabilitySyncer ............ 0.60ms DONE
+  2025-03-23 14:00:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 14:00:02 App\Jobs\HighAvailabilitySyncer ............ 0.55ms DONE
+  2025-03-23 14:05:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 14:05:02 App\Jobs\HighAvailabilitySyncer ............ 0.53ms DONE
+  2025-03-23 14:10:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 14:10:02 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-23 14:15:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 14:15:01 App\Jobs\HighAvailabilitySyncer ............ 0.45ms DONE
+  2025-03-23 14:20:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 14:20:02 App\Jobs\HighAvailabilitySyncer ............ 0.43ms DONE
+  2025-03-23 14:25:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 14:25:02 App\Jobs\HighAvailabilitySyncer ............ 0.56ms DONE
+  2025-03-23 14:30:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 14:30:02 App\Jobs\HighAvailabilitySyncer ............ 0.56ms DONE
+  2025-03-23 14:35:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 14:35:01 App\Jobs\HighAvailabilitySyncer ............ 0.55ms DONE
+  2025-03-23 14:40:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 14:40:02 App\Jobs\HighAvailabilitySyncer ............ 0.50ms DONE
+  2025-03-23 14:45:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 14:45:01 App\Jobs\HighAvailabilitySyncer ............ 0.68ms DONE
+  2025-03-23 14:50:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 14:50:01 App\Jobs\HighAvailabilitySyncer ............ 0.54ms DONE
+  2025-03-23 14:55:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 14:55:02 App\Jobs\HighAvailabilitySyncer ............ 0.56ms DONE
+  2025-03-23 15:00:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 15:00:02 App\Jobs\HighAvailabilitySyncer ............ 0.60ms DONE
+  2025-03-23 15:05:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 15:05:02 App\Jobs\HighAvailabilitySyncer ............ 0.71ms DONE
+  2025-03-23 15:10:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 15:10:02 App\Jobs\HighAvailabilitySyncer ............ 0.81ms DONE
+  2025-03-23 15:15:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 15:15:01 App\Jobs\HighAvailabilitySyncer ............ 0.48ms DONE
+  2025-03-23 15:20:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 15:20:02 App\Jobs\HighAvailabilitySyncer ............ 0.40ms DONE
+  2025-03-23 15:25:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 15:25:01 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-23 15:30:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 15:30:02 App\Jobs\HighAvailabilitySyncer ............ 0.48ms DONE
+  2025-03-23 15:35:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 15:35:02 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-23 15:40:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 15:40:02 App\Jobs\HighAvailabilitySyncer ............ 0.60ms DONE
+  2025-03-23 15:45:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 15:45:02 App\Jobs\HighAvailabilitySyncer ............ 0.55ms DONE
+  2025-03-23 15:50:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 15:50:01 App\Jobs\HighAvailabilitySyncer ............ 0.62ms DONE
+  2025-03-23 15:55:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 15:55:02 App\Jobs\HighAvailabilitySyncer ............ 0.61ms DONE
+  2025-03-23 16:00:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 16:00:02 App\Jobs\HighAvailabilitySyncer ............ 1.42ms DONE
+  2025-03-23 16:05:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 16:05:02 App\Jobs\HighAvailabilitySyncer ............ 0.61ms DONE
+  2025-03-23 16:10:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 16:10:02 App\Jobs\HighAvailabilitySyncer ............ 0.60ms DONE
+  2025-03-23 16:15:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 16:15:02 App\Jobs\HighAvailabilitySyncer ............ 0.76ms DONE
+  2025-03-23 16:20:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 16:20:02 App\Jobs\HighAvailabilitySyncer ............ 0.45ms DONE
+  2025-03-23 16:25:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 16:25:02 App\Jobs\HighAvailabilitySyncer ............ 0.59ms DONE
+  2025-03-23 16:30:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 16:30:01 App\Jobs\HighAvailabilitySyncer ............ 0.57ms DONE
+  2025-03-23 16:35:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 16:35:02 App\Jobs\HighAvailabilitySyncer ............ 0.48ms DONE
+  2025-03-23 16:40:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 16:40:01 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-23 16:45:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 16:45:02 App\Jobs\HighAvailabilitySyncer ............ 0.70ms DONE
+  2025-03-23 16:50:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 16:50:01 App\Jobs\HighAvailabilitySyncer ............ 0.48ms DONE
+  2025-03-23 16:55:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 16:55:02 App\Jobs\HighAvailabilitySyncer ............ 0.55ms DONE
+  2025-03-23 17:00:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 17:00:02 App\Jobs\HighAvailabilitySyncer ............ 0.54ms DONE
+  2025-03-23 17:05:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 17:05:01 App\Jobs\HighAvailabilitySyncer ............ 0.52ms DONE
+  2025-03-23 17:10:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 17:10:01 App\Jobs\HighAvailabilitySyncer ............ 0.63ms DONE
+  2025-03-23 17:15:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 17:15:02 App\Jobs\HighAvailabilitySyncer ............ 0.48ms DONE
+  2025-03-23 17:20:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 17:20:02 App\Jobs\HighAvailabilitySyncer ............ 0.64ms DONE
+  2025-03-23 17:25:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 17:25:02 App\Jobs\HighAvailabilitySyncer ............ 0.53ms DONE
+  2025-03-23 17:30:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 17:30:01 App\Jobs\HighAvailabilitySyncer ............ 0.63ms DONE
+  2025-03-23 17:35:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 17:35:02 App\Jobs\HighAvailabilitySyncer ............ 0.61ms DONE
+  2025-03-23 17:40:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 17:40:01 App\Jobs\HighAvailabilitySyncer ............ 0.44ms DONE
+  2025-03-23 17:45:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 17:45:02 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-23 17:50:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 17:50:02 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-23 17:55:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 17:55:02 App\Jobs\HighAvailabilitySyncer ............ 0.55ms DONE
+  2025-03-23 18:00:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 18:00:02 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-23 18:05:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 18:05:01 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-23 18:10:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 18:10:02 App\Jobs\HighAvailabilitySyncer ............ 1.26ms DONE
+  2025-03-23 18:15:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 18:15:01 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-23 18:20:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 18:20:02 App\Jobs\HighAvailabilitySyncer ............ 0.52ms DONE
+  2025-03-23 18:25:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 18:25:02 App\Jobs\HighAvailabilitySyncer ............ 0.70ms DONE
+  2025-03-23 18:30:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 18:30:02 App\Jobs\HighAvailabilitySyncer ............ 0.45ms DONE
+  2025-03-23 18:35:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 18:35:02 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-23 18:40:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 18:40:01 App\Jobs\HighAvailabilitySyncer ............ 0.46ms DONE
+  2025-03-23 18:45:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 18:45:02 App\Jobs\HighAvailabilitySyncer ............ 0.53ms DONE
+  2025-03-23 18:50:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 18:50:02 App\Jobs\HighAvailabilitySyncer ............ 0.45ms DONE
+  2025-03-23 18:55:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 18:55:02 App\Jobs\HighAvailabilitySyncer ............ 0.52ms DONE
+  2025-03-23 19:00:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 19:00:01 App\Jobs\HighAvailabilitySyncer ............ 0.68ms DONE
+  2025-03-23 19:05:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 19:05:01 App\Jobs\HighAvailabilitySyncer ............ 0.64ms DONE
+  2025-03-23 19:10:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 19:10:02 App\Jobs\HighAvailabilitySyncer ............ 0.61ms DONE
+  2025-03-23 19:15:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 19:15:01 App\Jobs\HighAvailabilitySyncer ............ 0.49ms DONE
+  2025-03-23 19:20:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 19:20:02 App\Jobs\HighAvailabilitySyncer ............ 0.59ms DONE
+  2025-03-23 19:25:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 19:25:02 App\Jobs\HighAvailabilitySyncer ............ 0.57ms DONE
+  2025-03-23 19:30:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 19:30:02 App\Jobs\HighAvailabilitySyncer ............ 0.62ms DONE
+  2025-03-23 19:35:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 19:35:02 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-23 19:40:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 19:40:01 App\Jobs\HighAvailabilitySyncer ............ 0.48ms DONE
+  2025-03-23 19:45:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 19:45:01 App\Jobs\HighAvailabilitySyncer ............ 0.52ms DONE
+  2025-03-23 19:50:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 19:50:02 App\Jobs\HighAvailabilitySyncer ............ 0.46ms DONE
+  2025-03-23 19:55:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 19:55:02 App\Jobs\HighAvailabilitySyncer ............ 0.60ms DONE
+  2025-03-23 20:00:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 20:00:01 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-23 20:05:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 20:05:01 App\Jobs\HighAvailabilitySyncer ............ 0.55ms DONE
+  2025-03-23 20:10:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 20:10:02 App\Jobs\HighAvailabilitySyncer ............ 0.53ms DONE
+  2025-03-23 20:15:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 20:15:01 App\Jobs\HighAvailabilitySyncer ............ 0.63ms DONE
+  2025-03-23 20:20:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 20:20:02 App\Jobs\HighAvailabilitySyncer ............ 0.50ms DONE
+  2025-03-23 20:25:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 20:25:02 App\Jobs\HighAvailabilitySyncer ............ 0.53ms DONE
+  2025-03-23 20:30:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 20:30:02 App\Jobs\HighAvailabilitySyncer ............ 0.49ms DONE
+  2025-03-23 20:35:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 20:35:02 App\Jobs\HighAvailabilitySyncer ............ 0.45ms DONE
+  2025-03-23 20:40:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 20:40:01 App\Jobs\HighAvailabilitySyncer ............ 0.57ms DONE
+  2025-03-23 20:45:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 20:45:01 App\Jobs\HighAvailabilitySyncer ............ 0.78ms DONE
+  2025-03-23 20:50:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 20:50:01 App\Jobs\HighAvailabilitySyncer ............ 0.70ms DONE
+  2025-03-23 20:55:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 20:55:02 App\Jobs\HighAvailabilitySyncer ............ 0.49ms DONE
+  2025-03-23 21:00:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 21:00:02 App\Jobs\HighAvailabilitySyncer ............ 0.63ms DONE
+  2025-03-23 21:05:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 21:05:02 App\Jobs\HighAvailabilitySyncer ............ 0.65ms DONE
+  2025-03-23 21:10:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 21:10:02 App\Jobs\HighAvailabilitySyncer ............ 0.44ms DONE
+  2025-03-23 21:15:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 21:15:01 App\Jobs\HighAvailabilitySyncer ............ 0.46ms DONE
+  2025-03-23 21:20:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 21:20:01 App\Jobs\HighAvailabilitySyncer ............ 0.48ms DONE
+  2025-03-23 21:25:03 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 21:25:03 App\Jobs\HighAvailabilitySyncer ............ 0.43ms DONE
+  2025-03-23 21:30:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 21:30:02 App\Jobs\HighAvailabilitySyncer ............ 0.60ms DONE
+  2025-03-23 21:35:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 21:35:02 App\Jobs\HighAvailabilitySyncer ............ 0.57ms DONE
+  2025-03-23 21:40:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 21:40:01 App\Jobs\HighAvailabilitySyncer ............ 0.50ms DONE
+  2025-03-23 21:45:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 21:45:02 App\Jobs\HighAvailabilitySyncer ............ 0.49ms DONE
+  2025-03-23 21:50:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 21:50:01 App\Jobs\HighAvailabilitySyncer ............ 0.55ms DONE
+  2025-03-23 21:55:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 21:55:02 App\Jobs\HighAvailabilitySyncer ............ 0.45ms DONE
+  2025-03-23 22:00:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 22:00:02 App\Jobs\HighAvailabilitySyncer ............ 0.73ms DONE
+  2025-03-23 22:05:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 22:05:02 App\Jobs\HighAvailabilitySyncer ............ 0.44ms DONE
+  2025-03-23 22:10:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 22:10:02 App\Jobs\HighAvailabilitySyncer ............ 0.54ms DONE
+  2025-03-23 22:15:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 22:15:01 App\Jobs\HighAvailabilitySyncer ............ 0.58ms DONE
+  2025-03-23 22:20:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 22:20:01 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-23 22:25:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 22:25:02 App\Jobs\HighAvailabilitySyncer ............ 0.53ms DONE
+  2025-03-23 22:30:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 22:30:02 App\Jobs\HighAvailabilitySyncer ............ 0.65ms DONE
+  2025-03-23 22:35:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 22:35:02 App\Jobs\HighAvailabilitySyncer ............ 0.47ms DONE
+  2025-03-23 22:40:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 22:40:01 App\Jobs\HighAvailabilitySyncer ............ 0.58ms DONE
+  2025-03-23 22:45:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 22:45:02 App\Jobs\HighAvailabilitySyncer ............ 0.59ms DONE
+  2025-03-23 22:50:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 22:50:01 App\Jobs\HighAvailabilitySyncer ............ 1.33ms DONE
+  2025-03-23 22:55:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 22:55:01 App\Jobs\HighAvailabilitySyncer ............ 0.52ms DONE
+  2025-03-23 23:00:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 23:00:02 App\Jobs\HighAvailabilitySyncer ............ 0.84ms DONE
+  2025-03-23 23:05:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 23:05:02 App\Jobs\HighAvailabilitySyncer ............ 0.48ms DONE
+  2025-03-23 23:10:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 23:10:02 App\Jobs\HighAvailabilitySyncer ............ 0.56ms DONE
+  2025-03-23 23:15:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 23:15:02 App\Jobs\HighAvailabilitySyncer ............ 0.52ms DONE
+  2025-03-23 23:20:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 23:20:01 App\Jobs\HighAvailabilitySyncer ............ 0.47ms DONE
+  2025-03-23 23:25:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 23:25:02 App\Jobs\HighAvailabilitySyncer ............ 0.46ms DONE
+  2025-03-23 23:30:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 23:30:02 App\Jobs\HighAvailabilitySyncer ............ 0.59ms DONE
+  2025-03-23 23:35:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 23:35:02 App\Jobs\HighAvailabilitySyncer ............ 0.53ms DONE
+  2025-03-23 23:40:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 23:40:01 App\Jobs\HighAvailabilitySyncer ............ 0.50ms DONE
+  2025-03-23 23:45:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 23:45:02 App\Jobs\HighAvailabilitySyncer ............ 0.64ms DONE
+  2025-03-23 23:50:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 23:50:01 App\Jobs\HighAvailabilitySyncer ............ 0.49ms DONE
+  2025-03-23 23:55:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-23 23:55:01 App\Jobs\HighAvailabilitySyncer ............ 0.56ms DONE
+  2025-03-24 00:00:03 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 00:00:03 App\Jobs\HighAvailabilitySyncer ............ 0.44ms DONE
+  2025-03-24 00:05:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 00:05:02 App\Jobs\HighAvailabilitySyncer ............ 0.50ms DONE
+  2025-03-24 00:10:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 00:10:02 App\Jobs\HighAvailabilitySyncer ............ 0.66ms DONE
+  2025-03-24 00:15:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 00:15:01 App\Jobs\HighAvailabilitySyncer ............ 0.60ms DONE
+  2025-03-24 00:20:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 00:20:02 App\Jobs\HighAvailabilitySyncer ............ 0.54ms DONE
+  2025-03-24 00:25:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 00:25:01 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-24 00:30:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 00:30:02 App\Jobs\HighAvailabilitySyncer ............ 0.52ms DONE
+  2025-03-24 00:35:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 00:35:02 App\Jobs\HighAvailabilitySyncer ............ 0.53ms DONE
+  2025-03-24 00:40:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 00:40:02 App\Jobs\HighAvailabilitySyncer ............ 0.56ms DONE
+  2025-03-24 00:45:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 00:45:02 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-24 00:50:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 00:50:01 App\Jobs\HighAvailabilitySyncer ............ 0.52ms DONE
+  2025-03-24 00:55:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 00:55:02 App\Jobs\HighAvailabilitySyncer ............ 0.47ms DONE
+  2025-03-24 01:00:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 01:00:02 App\Jobs\HighAvailabilitySyncer ............ 0.46ms DONE
+  2025-03-24 01:05:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 01:05:02 App\Jobs\HighAvailabilitySyncer ............ 0.64ms DONE
+  2025-03-24 01:10:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 01:10:01 App\Jobs\HighAvailabilitySyncer ............ 0.54ms DONE
+  2025-03-24 01:15:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 01:15:01 App\Jobs\HighAvailabilitySyncer ............ 0.54ms DONE
+  2025-03-24 01:20:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 01:20:02 App\Jobs\HighAvailabilitySyncer ............ 0.57ms DONE
+  2025-03-24 01:25:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 01:25:02 App\Jobs\HighAvailabilitySyncer ............ 0.59ms DONE
+  2025-03-24 01:30:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 01:30:02 App\Jobs\HighAvailabilitySyncer ............ 0.59ms DONE
+  2025-03-24 01:35:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 01:35:01 App\Jobs\HighAvailabilitySyncer ............ 0.48ms DONE
+  2025-03-24 01:40:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 01:40:02 App\Jobs\HighAvailabilitySyncer ............ 0.44ms DONE
+  2025-03-24 01:45:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 01:45:02 App\Jobs\HighAvailabilitySyncer ............ 0.56ms DONE
+  2025-03-24 01:50:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 01:50:02 App\Jobs\HighAvailabilitySyncer ............ 0.48ms DONE
+  2025-03-24 01:55:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 01:55:01 App\Jobs\HighAvailabilitySyncer ............ 0.46ms DONE
+  2025-03-24 02:00:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 02:00:02 App\Jobs\HighAvailabilitySyncer ............ 0.49ms DONE
+  2025-03-24 02:05:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 02:05:02 App\Jobs\HighAvailabilitySyncer ............ 0.45ms DONE
+  2025-03-24 02:10:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 02:10:01 App\Jobs\HighAvailabilitySyncer ............ 0.47ms DONE
+  2025-03-24 02:15:03 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 02:15:03 App\Jobs\HighAvailabilitySyncer ............ 0.68ms DONE
+  2025-03-24 02:20:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 02:20:02 App\Jobs\HighAvailabilitySyncer ............ 0.55ms DONE
+  2025-03-24 02:25:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 02:25:02 App\Jobs\HighAvailabilitySyncer ............ 0.52ms DONE
+  2025-03-24 02:30:01 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 02:30:01 App\Jobs\HighAvailabilitySyncer ............ 0.51ms DONE
+  2025-03-24 02:35:02 App\Jobs\HighAvailabilitySyncer ................ RUNNING
+  2025-03-24 02:35:02 App\Jobs\HighAvailabilitySyncer ............ 0.49ms DONE

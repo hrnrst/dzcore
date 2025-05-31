@@ -1,0 +1,28 @@
+{
+  "../components/navigation/site-header.tsx -> ./notifications": {
+    "id": 8066,
+    "files": [
+      "static/chunks/3434.7a6a333f9fe31a49.js",
+      "static/chunks/8066.28a99009bde60791.js"
+    ]
+  },
+  "../components/server/resource-usage.tsx -> react-apexcharts": {
+    "id": 7229,
+    "files": [
+      "static/chunks/6c44d60f.ae4ce64cc57c5c1f.js",
+      "static/chunks/7229.daeea0855cfac85c.js"
+    ]
+  },
+  "index.tsx -> @/components/dashboard/date-time": {
+    "id": 2071,
+    "files": [
+      "static/chunks/2071.b6366177006b8c6b.js"
+    ]
+  },
+  "servers/[server_id]/extensions/[extension_id]/[[...slug]].tsx -> @/components/extension/renderer": {
+    "id": 3993,
+    "files": [
+      "static/chunks/3993.909b43bd9603b504.js"
+    ]
+  }
+}

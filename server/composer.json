@@ -1,0 +1,93 @@
+{
+    "name": "liman/liman",
+    "description": "Liman System Manager",
+    "keywords": ["liman", "linux", "havelsan"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": "^8.1",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "ext-posix": "*",
+        "ext-snmp": "*",
+        "ext-xml": "*",
+        "ext-zip": "*",
+        "acsystems/keycloak-php-sdk": "^4.4",
+        "ankitpokhrel/tus-php": "^2.3",
+        "bacon/bacon-qr-code": "^2.0",
+        "beebmx/blade": "^1.5",
+        "beyondcode/laravel-websockets": "^1.13",
+        "composer/semver": "^3.3",
+        "doctrine/dbal": "^3.4",
+        "guzzlehttp/guzzle": "^7.5",
+        "jackiedo/dotenv-editor": "^2.0",
+        "laravel/framework": "^10.0",
+        "laravel/helpers": "^1.5",
+        "laravel/tinker": "^2.7",
+        "laravel/ui": "^4.0",
+        "league/csv": "^9.0",
+        "limanmys/php-smb": "^3.5",
+        "mervick/aes-everywhere": "^1.1",
+        "mews/captcha": "^3.2",
+        "phpseclib/phpseclib": "~3.0",
+        "pragmarx/google2fa-laravel": "^2.0",
+        "pusher/pusher-php-server": "^7.0",
+        "stevenmaguire/oauth2-keycloak": "^5.1",
+        "tymon/jwt-auth": "^2.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9.1",
+        "laravel/pint": "^1.0",
+        "laravel/sail": "^1.0.1",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^6.1",
+        "phpunit/phpunit": "^9.5.10",
+        "spatie/laravel-ignition": "^2.0",
+        "spatie/laravel-web-tinker": "^1.8"
+    },
+    "autoload": {
+        "files": [
+            "app/Http/Helpers.php"
+        ],
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "files": [
+            "app/Http/Helpers.php"
+        ],
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+                "laravel/dusk"
+            ]
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "php artisan package:discover --ansi"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "prefer-stable": true
+}

@@ -1,0 +1,20 @@
+{
+  "name": "limanmys/php-sandbox",
+  "description": "",
+  "homepage": "https://dz.dev",
+  "version": "1.0",
+  "type": "project",
+  "require": {
+    "limanmys/toolkit": "^1.0",
+    "larapack/dd": "^1.1",
+    "phpseclib/phpseclib": "~3.0",
+    "guzzlehttp/guzzle": "^7.5",
+    "ext-json": "*",
+    "ext-openssl": "*",
+    "ext-ldap": "*",
+    "mervick/aes-everywhere": "^1.1",
+    "laravel/helpers": "^1.5",
+    "beebmx/blade": "^1.5",
+    "limanmys/php-smb": "^3.5"
+  }
+}
