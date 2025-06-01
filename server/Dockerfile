@@ -24,11 +24,11 @@ RUN apt -yqq update
 # LIMAN + PYTHON DEPS
 RUN DEBIAN_FRONTEND=noninteractive apt -yqq install \
     sudo nodejs gpg zip unzip nginx sysstat \
-    php8.1-redis php8.1-fpm php8.1-gd php8.1-curl php8.1 \
-    php8.1-sqlite3 php8.1-snmp php8.1-mbstring php8.1-xml php8.1-zip \
-    php8.1-posix libnginx-mod-http-headers-more-filter libssl3 supervisor \
-    php8.1-pgsql pgloader php8.1-bcmath rsync dnsutils php8.1-ldap \
-    php8.1-smbclient krb5-user php8.1-ssh2 smbclient novnc \
+    php8.2-redis php8.2-fpm php8.2-gd php8.2-curl php8.2 \
+    php8.2-sqlite3 php8.2-snmp php8.2-mbstring php8.2-xml php8.2-zip \
+    php8.2-posix libnginx-mod-http-headers-more-filter libssl3 supervisor \
+    php8.2-pgsql pgloader php8.2-bcmath rsync dnsutils php8.2-ldap \
+    php8.2-smbclient krb5-user php8.2-ssh2 smbclient novnc \
     python3 python3-pip iputils-ping && \
     pip3 install pywinrm
 
@@ -81,7 +81,7 @@ RUN chown liman:liman /liman_files/keys/vnc /liman_files/keys/vnc/config
 RUN chmod 700 /liman_files/keys/vnc/config
 
 # SETTINGS
-RUN sed -i "s/www-data/liman/g" /etc/php/8.1/fpm/pool.d/www.conf
+RUN sed -i "s/www-data/liman/g" /etc/php/8.2/fpm/pool.d/www.conf
 RUN sed -i "s/www-data/liman/g" /etc/nginx/nginx.conf
 COPY server/storage/build_tools/docker/config/nginx_default /etc/nginx/sites-available/default 
 COPY server/storage/build_tools/docker/config/nginx.conf /etc/nginx/sites-available/liman.conf
