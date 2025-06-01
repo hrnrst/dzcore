@@ -82,17 +82,17 @@ RUN chmod 700 /liman_files/keys/vnc/config
 # SETTINGS
 RUN sed -i "s/www-data/liman/g" /etc/php/8.1/fpm/pool.d/www.conf
 RUN sed -i "s/www-data/liman/g" /etc/nginx/nginx.conf
-COPY storage/build_tools/docker/config/nginx_default /etc/nginx/sites-available/default 
-COPY storage/build_tools/docker/config/nginx.conf /etc/nginx/sites-available/liman.conf
+COPY server/storage/build_tools/docker/config/nginx_default /etc/nginx/sites-available/default 
+COPY server/storage/build_tools/docker/config/nginx.conf /etc/nginx/sites-available/liman.conf
 RUN ln -s /etc/nginx/sites-available/liman.conf /etc/nginx/sites-enabled/liman.conf
 
 # SERVICES
 RUN mkdir /run/php
-COPY storage/build_tools/docker/config/supervisor.conf /etc/supervisor/supervisor.conf
-COPY storage/build_tools/docker/config/supervisor /etc/supervisor/conf.d
+COPY server/storage/build_tools/docker/config/supervisor.conf /etc/supervisor/supervisor.conf
+COPY server/storage/build_tools/docker/config/supervisor /etc/supervisor/conf.d
 
 # START LIMAN
-COPY ./init.sh /tmp/init.sh
+COPY server/storage/build_tools/docker/init.sh /tmp/init.sh
 RUN ["chmod", "755", "/tmp/init.sh"]
 RUN ["chmod", "+x", "/tmp/init.sh"]
 
