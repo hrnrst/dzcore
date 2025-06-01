@@ -36,15 +36,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt -yqq install \
 RUN bash -c 'mkdir -p /liman/{server,certs,logs,database,sandbox,scripts,keys,extensions,packages,ui}'
 
 # UI
-RUN wget https://github.com/limanmys/next/releases/download/release.master.150/ui-master-150.zip
+#RUN wget https://github.com/limanmys/next/releases/download/release.master.150/ui-master-150.zip
+COPY ui-master-1.zip /tmp/
 RUN unzip ui*.zip -d ui
 RUN mv ui /liman/
-
-# Local'deki zip dosyasını konteynıra kopyala
-COPY server/ui-master-1.zip /tmp/
-
-# Zip'i aç ve taşı
-RUN unzip /tmp/ui-master-1.zip -d /tmp/ui && mv /tmp/ui /liman/
 
 
 # CORE
