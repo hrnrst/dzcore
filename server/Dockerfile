@@ -1,11 +1,11 @@
 # LIMAN DOCKERFILE
-# AUTHOR: Doğukan Öksüz <dogukan@liman.dev> + PYTHON/WinRM entegre
+# PYTHON/WinRM entegre
 
 FROM ubuntu:jammy
 EXPOSE 80 443
 
 # DEPENDENCIES
-RUN echo LIMAN.HAVELSAN.COM.TR
+RUN echo SCNCORE.COM.TR
 RUN export DEBIAN_FRONTEND=noninteractive;
 ARG DEBIAN_FRONTEND=noninteractive
 ENV DEBIAN_FRONTEND noninteractive
@@ -92,7 +92,7 @@ COPY storage/build_tools/docker/config/supervisor.conf /etc/supervisor/superviso
 COPY storage/build_tools/docker/config/supervisor /etc/supervisor/conf.d
 
 # START LIMAN
-COPY storage/build_tools/docker/init.sh /tmp/init.sh
+COPY ./init.sh /tmp/init.sh
 RUN ["chmod", "755", "/tmp/init.sh"]
 RUN ["chmod", "+x", "/tmp/init.sh"]
 
