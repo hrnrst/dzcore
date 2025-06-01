@@ -41,7 +41,7 @@ RUN unzip ui*.zip -d ui
 RUN mv ui /liman_files/
 
 # CORE
-COPY . /liman_files/server
+COPY server /liman_files/server
 
 # PHP SANDBOX
 RUN wget "https://github.com/limanmys/php-sandbox/archive/refs/heads/master.zip" -O "sandbox.zip"
