@@ -33,7 +33,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt -yqq install \
     pip3 install pywinrm
 
 # FILES
-RUN bash -c 'mkdir -p /liman/{server,certs,logs,database,sandbox,scripts,keys,extensions,packages,ui}'
+RUN bash -c 'mkdir -p /liman/{server,certs,logs,database,sandbox,scripts,modules,keys,extensions,packages,ui}'
 
 # UI
 #RUN wget https://github.com/limanmys/next/releases/download/release.master.150/ui-master-150.zip
