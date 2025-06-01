@@ -41,7 +41,7 @@ RUN unzip ui*.zip -d ui
 RUN mv ui /liman/
 
 # Local'deki zip dosyasını konteynıra kopyala
-COPY server/ui-master-1 /tmp/
+COPY server/ui-master-1.zip /tmp/
 
 # Zip'i aç ve taşı
 RUN unzip /tmp/ui-master-1.zip -d /tmp/ui && mv /tmp/ui /liman/
