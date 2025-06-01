@@ -33,36 +33,36 @@ RUN DEBIAN_FRONTEND=noninteractive apt -yqq install \
     pip3 install pywinrm
 
 # FILES
-RUN bash -c 'mkdir -p /liman_files/{server,certs,logs,database,sandbox,scripts,keys,extensions,packages,ui}'
+RUN bash -c 'mkdir -p /liman/{server,certs,logs,database,sandbox,scripts,keys,extensions,packages,ui}'
 
 # UI
 RUN wget https://github.com/limanmys/next/releases/download/release.master.150/ui-master-150.zip
 RUN unzip ui*.zip -d ui
-RUN mv ui /liman_files/
+RUN mv ui /liman/
 
 # CORE
-COPY server /liman_files/server
+COPY server /liman/server
 
 # PHP SANDBOX
 RUN wget "https://github.com/limanmys/php-sandbox/archive/refs/heads/master.zip" -O "sandbox.zip"
 RUN unzip -qq sandbox.zip
-RUN mkdir -p /liman_files/sandbox/php
-RUN mv php-sandbox-master/* /liman_files/sandbox/php/
+RUN mkdir -p /liman/sandbox/php
+RUN mv php-sandbox-master/* /liman/sandbox/php/
 RUN rm -rf sandbox.zip php-sandbox-master
 
 # RENDER ENGINE
 RUN curl -s https://api.github.com/repos/limanmys/fiber-render-engine/releases/latest | grep "browser_download_url.*zip" | cut -d : -f 2,3 | tr -d \" | wget -qi -
 RUN unzip liman_render*.zip
-RUN mkdir -p /liman_files/server/storage
-RUN mv liman_render /liman_files/server/storage/liman_render
+RUN mkdir -p /liman/server/storage
+RUN mv liman_render /liman/server/storage/liman_render
 
 # COMPOSER
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 RUN rm -rf composer-setup.php
 
-RUN composer install --no-dev --no-scripts -d /liman_files/server
-RUN composer install --no-dev -d /liman_files/sandbox/php
+RUN composer install --no-dev --no-scripts -d /liman/server
+RUN composer install --no-dev -d /liman/sandbox/php
 
 # USERS
 RUN groupadd -g 2800 liman
@@ -70,15 +70,15 @@ RUN useradd liman -u 2801 -g 2800 -m
 RUN useradd extuser -u 2802 -g 2800 -m
 
 # PERMS
-RUN cp -f /liman_files/server/storage/limanctl /usr/bin/limanctl
+RUN cp -f /liman/server/storage/limanctl /usr/bin/limanctl
 
 # VNC SETTINGS
-RUN rm -rf /liman_files/keys/vnc
-RUN mkdir /liman_files/keys/vnc
-RUN chmod 700 /liman_files/keys/vnc
-RUN touch /liman_files/keys/vnc/config
-RUN chown liman:liman /liman_files/keys/vnc /liman_files/keys/vnc/config
-RUN chmod 700 /liman_files/keys/vnc/config
+RUN rm -rf /liman/keys/vnc
+RUN mkdir /liman/keys/vnc
+RUN chmod 700 /liman/keys/vnc
+RUN touch /liman/keys/vnc/config
+RUN chown liman:liman /liman/keys/vnc /liman/keys/vnc/config
+RUN chmod 700 /liman/keys/vnc/config
 
 # SETTINGS
 RUN sed -i "s/www-data/liman/g" /etc/php/8.2/fpm/pool.d/www.conf
