@@ -46,6 +46,9 @@ RUN unzip /tmp/ui-master-1.zip -d /tmp/ui && mv /tmp/ui /liman/
 # CORE
 COPY server /liman/server
 
+COPY scripts /liman/scripts
+
+
 # PHP SANDBOX
 RUN wget "https://github.com/limanmys/php-sandbox/archive/refs/heads/master.zip" -O "sandbox.zip"
 RUN unzip -qq sandbox.zip
