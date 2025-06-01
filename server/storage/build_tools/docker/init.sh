@@ -26,6 +26,8 @@ chmod -R 700 /liman/packages
 chown -R liman:liman /liman/packages
 chmod -R 700 /liman/ui
 chown -R liman:liman /liman/ui
+chmod -R 700 /liman/scripts
+chown -R liman:liman /liman/scripts
 
 chmod +x /liman/server/storage/liman_render
 chmod +x /liman/server/storage/liman_system
