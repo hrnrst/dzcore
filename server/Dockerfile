@@ -38,7 +38,8 @@ RUN bash -c 'mkdir -p /liman/{server,certs,logs,database,sandbox,scripts,keys,ex
 # UI
 #RUN wget https://github.com/limanmys/next/releases/download/release.master.150/ui-master-150.zip
 COPY server/ui-master-1.zip /tmp/
-RUN unzip ui*.zip -d ui
+#RUN unzip ui*.zip -d ui
+RUN unzip /tmp/ui-master-1.zip -d /tmp/ui
 RUN mv ui /liman/
 
 
