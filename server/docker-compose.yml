@@ -3,20 +3,20 @@ services:
   limancore:
     build:
       context: https://github.com/hrnrst/dzcore.git#master
-      dockerfile: Dockerfile
+      dockerfile: server/Dockerfile
     depends_on:
       db:
         condition: service_healthy
     restart: always
     environment:
       - REDIS_HOST=liman-redis
-      - REDIS_PASS=${DB_PASS}
+      - REDIS_PASS=liman
       - REDIS_PORT=6379
       - DB_HOST=liman-db
       - DB_DATABASE=liman
       - DB_USERNAME=liman
       - DB_PORT=5432
-      - DB_PASS=${DB_PASS}
+      - DB_PASS=liman
       - NGINX_PORT=443
     container_name: liman-core
     tty: true
@@ -36,7 +36,7 @@ services:
     restart: always
     environment:
       - POSTGRES_USER=liman
-      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_PASSWORD=liman
       - POSTGRES_DB=liman
     volumes:
       - db:/var/lib/postgresql/data
@@ -52,10 +52,10 @@ services:
     image: redis
     container_name: liman-redis
     environment:
-      - REDIS_PASSWORD=${DB_PASS}
+      - REDIS_PASSWORD=liman
       - REDIS_DISABLE_COMMANDS=CONFIG
     command: >
-      --requirepass ${DB_PASS} --protected-mode yes
+      --requirepass liman --protected-mode yes
     networks:
       - liman-net
 
