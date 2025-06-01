@@ -53,6 +53,7 @@ RUN rm -rf sandbox.zip php-sandbox-master
 # RENDER ENGINE
 RUN curl -s https://api.github.com/repos/limanmys/fiber-render-engine/releases/latest | grep "browser_download_url.*zip" | cut -d : -f 2,3 | tr -d \" | wget -qi -
 RUN unzip liman_render*.zip
+RUN mkdir -p /liman_files/server/storage
 RUN mv liman_render /liman_files/server/storage/liman_render
 
 # COMPOSER
