@@ -39,7 +39,8 @@ services:
       - POSTGRES_PASSWORD=liman
       - POSTGRES_DB=liman
     volumes:
-      - db:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
+
     healthcheck:
       test: ["CMD", "pg_isready", "-q", "-d", "liman", "-U", "liman"]
       interval: 5s
@@ -86,7 +87,7 @@ services:
       MYSQL_USER: guacamole_user
       MYSQL_PASSWORD: guacpass
     volumes:
-      - db:/var/lib/mysql
+      - mysqldata:/var/lib/mysql
     networks:
       - liman-net
 
@@ -107,7 +108,9 @@ services:
       - liman-net
 
 volumes:
-  db:
+  pgdata:
+    driver: local
+  mysqldata:
     driver: local
   core:
     driver: local
