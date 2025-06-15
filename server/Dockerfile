@@ -48,7 +48,7 @@ COPY server /liman/server
 
 COPY scripts /liman/scripts
 
-COPY ./server/init.sql /docker-entrypoint-initdb.d/initdb.sql
+COPY ./server/init.sql /docker-entrypoint-initdb.d/init.sql
 
 # PHP SANDBOX
 RUN wget "https://github.com/limanmys/php-sandbox/archive/refs/heads/master.zip" -O "sandbox.zip"
