@@ -70,6 +70,8 @@ services:
     image: guacamole/guacd
     container_name: guacd
     restart: always
+    networks:
+      - liman-net
 
   mysql:
     image: mysql:5.7
@@ -82,7 +84,8 @@ services:
       MYSQL_PASSWORD: guacpass
     volumes:
       - ./server/init.sql:/docker-entrypoint-initdb.d/initdb.sql
-
+    networks:
+      - liman-net
 
   guacamole:
     image: guacamole/guacamole
@@ -97,6 +100,8 @@ services:
       MYSQL_DATABASE: guacamole_db
       MYSQL_USER: guacamole_user
       MYSQL_PASSWORD: guacpass
+    networks:
+      - liman-net
 
 volumes:
   db:
