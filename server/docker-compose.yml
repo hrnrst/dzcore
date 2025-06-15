@@ -78,7 +78,7 @@ services:
     container_name: guac-mysql
     build:
       context: https://github.com/hrnrst/dzcore.git#master
-      dockerfile: server/Dockerfile
+      dockerfile: server/mysql.Dockerfile
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
