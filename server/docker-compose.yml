@@ -77,7 +77,7 @@ services:
     image: mysql:5.7
     container_name: guac-mysql
     build:
-      context: .
+      context: https://github.com/hrnrst/dzcore.git#master
       dockerfile: server/Dockerfile
     restart: always
     environment:
