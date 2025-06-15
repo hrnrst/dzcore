@@ -78,7 +78,7 @@ services:
     container_name: guac-mysql
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: server/Dockerfile
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
