@@ -83,7 +83,7 @@ services:
       MYSQL_USER: guacamole_user
       MYSQL_PASSWORD: guacpass
     volumes:
-      - ./server/init.sql:/docker-entrypoint-initdb.d/initdb.sql
+      - db:/var/lib/mysql
     networks:
       - liman-net
 
