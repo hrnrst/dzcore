@@ -40,7 +40,7 @@ class ConsoleController extends Controller
         
         // Hiçbir bağımlılık kontrolü yapmadan sadece ayarları yükle
         //$this->guacamoleUrl = 'http://192.168.1.25:8080/guacamole'; // localde 
-        $this->guacamoleUrl = 'http://guacamole:8080/guacamole'; // servis adı
+        $this->guacamoleUrl = 'https://' . $_SERVER['HTTP_HOST'] . '/guacamole';
         $this->guacamoleUser = 'guacadmin';
         $this->guacamolePass = 'guacadmin';
         
