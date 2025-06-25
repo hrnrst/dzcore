@@ -1,5 +1,4 @@
 # LIMAN DOCKERFILE
-# AUTHOR: Doğukan Öksüz <dogukan@liman.dev>
 
 FROM ubuntu:jammy
 EXPOSE 80 443

@@ -6,7 +6,7 @@
     "ok": "Ok",
     "warning": "Warnung",
     "delete": "Löschen",
-    "description": "Über diese Seite können Sie Ihre persönlichen Einstellungen und Systemeinstellungen von Liman vornehmen.",
+    "description": "Über diese Seite können Sie Ihre persönlichen Einstellungen und Systemeinstellungen von Dz vornehmen.",
     "user_settings": "Benutzereinstellungen",
     "system_settings": "Systemeinstellungen",
     "profile": {
@@ -25,9 +25,9 @@
             "title": "Profilinformationen",
             "description": "In diesem Abschnitt können Sie Ihren Benutzernamen, Ihre E-Mail-Adresse und Ihr Passwort aktualisieren.",
             "name": "Vorname Nachname",
-            "name_placeholder": "Liman-Benutzer",
+            "name_placeholder": "Dz-Benutzer",
             "email": "E-Mail-Adresse",
-            "email_placeholder": "dummy@liman.dev",
+            "email_placeholder": "dummy@dz.dev",
             "old_password": "Ihr altes Passwort",
             "password": "Ihr Passwort",
             "password_confirmation": "Bestätigung des Passworts",
@@ -68,7 +68,7 @@
                 "success_msg": "Die Daten wurden erfolgreich gelöscht.",
                 "error_msg": "Beim Löschen von Daten ist ein Fehler aufgetreten.",
                 "confirm": "Bist du sicher?",
-                "confirm_msg": "Die ausgewählten Daten werden vollständig aus dem Liman-System gelöscht. Möchten Sie fortfahren?",
+                "confirm_msg": "Die ausgewählten Daten werden vollständig aus dem Dz-System gelöscht. Möchten Sie fortfahren?",
                 "cancel": "Abbrechen",
                 "delete": "Bestätigen"
             }
@@ -125,7 +125,7 @@
     },
     "tokens": {
         "title": "Persönliche Zugangsschlüssel",
-        "description": "Sie können externe API-Enden verwenden, die von Liman bereitgestellt werden, indem Sie persönliche Zugriffsschlüssel erstellen.",
+        "description": "Sie können externe API-Enden verwenden, die von Dz bereitgestellt werden, indem Sie persönliche Zugriffsschlüssel erstellen.",
         "toasts": {
             "delete_success": "Der Schlüssel wurde erfolgreich gelöscht.",
             "delete_error": "Beim Löschen des Schlüssels ist ein Fehler aufgetreten.",
@@ -134,7 +134,7 @@
         },
         "delete": {
             "title": "Bist du sicher?",
-            "description": "Die ausgewählte externe Benachrichtigung <b>({{token}})</b> wird vollständig aus dem Liman-System gelöscht. Als Folge dieses Vorgangs kann der Empfang von Benachrichtigungen unterbrochen werden. Möchten Sie fortfahren?",
+            "description": "Die ausgewählte externe Benachrichtigung <b>({{token}})</b> wird vollständig aus dem Dz-System gelöscht. Als Folge dieses Vorgangs kann der Empfang von Benachrichtigungen unterbrochen werden. Möchten Sie fortfahren?",
             "cancel": "Abbrechen",
             "delete": "Bestätigen"
         },
@@ -203,7 +203,7 @@
                 "success_msg": "Die Erweiterung wurde erfolgreich gelöscht.",
                 "error_msg": "Beim Löschen der Erweiterung ist ein Fehler aufgetreten.",
                 "title": "Bist du sicher?",
-                "description": "Die ausgewählte Erweiterung <b>({{extension}})</b> wird vollständig aus dem Liman-System entfernt. Als Ergebnis dieses Prozesses verlieren Sie möglicherweise Ihre Falldaten und Erweiterungsberechtigungen. Möchten Sie fortfahren?",
+                "description": "Die ausgewählte Erweiterung <b>({{extension}})</b> wird vollständig aus dem Dz-System entfernt. Als Ergebnis dieses Prozesses verlieren Sie möglicherweise Ihre Falldaten und Erweiterungsberechtigungen. Möchten Sie fortfahren?",
                 "cancel": "Abbrechen",
                 "delete": "Bestätigen"
             }
@@ -248,7 +248,7 @@
             "user": "Benutzer",
             "admin": "Administrator",
             "name_surname": "Vorname Nachname",
-            "name_surname_placeholder": "Liman-Benutzer",
+            "name_surname_placeholder": "Dz-Benutzer",
             "username": "Benutzername",
             "email": "E-Mail-Adresse",
             "password": "Ihr Passwort",
@@ -270,7 +270,7 @@
             "created_at": "Login-Datum",
             "unknown": "Unbekannt",
             "title": "Login-Datensätze",
-            "description": "Sie können alle Benutzer, die bei Liman angemeldet sind, im Detail untersuchen.",
+            "description": "Sie können alle Benutzer, die bei Dz angemeldet sind, im Detail untersuchen.",
             "desc2": "Sie können die Anmeldedatensätze des Benutzers im Detail anzeigen.",
             "back_to_users": "Zurück zur Benutzerliste"
         },
@@ -278,7 +278,7 @@
             "success": "Der Benutzer wurde erfolgreich gelöscht.",
             "error": "Beim Löschen des Benutzers ist ein Fehler aufgetreten.",
             "title": "Bist du sicher?",
-            "subtext": "Der ausgewählte Benutzer <b>({{username}})</b> wird vollständig aus dem Liman-System gelöscht. Als Ergebnis dieses Prozesses verlieren Sie möglicherweise Ihre Falldaten und Erweiterungsberechtigungen. Möchten Sie fortfahren?",
+            "subtext": "Der ausgewählte Benutzer <b>({{username}})</b> wird vollständig aus dem Dz-System gelöscht. Als Ergebnis dieses Prozesses verlieren Sie möglicherweise Ihre Falldaten und Erweiterungsberechtigungen. Möchten Sie fortfahren?",
             "no": "Abbrechen",
             "yes": "Bestätigen"
         }
@@ -307,7 +307,7 @@
             "description": "Sie können alle Rollen und Berechtigungen anzeigen, die für die Datenbank erstellt wurden, indem Sie eine detaillierte Filterung durchführen.",
             "username": "Benutzername",
             "role_name": "Name der Rolle",
-            "liman": "DZ",
+            "Dz": "DZ",
             "server": "Server",
             "extension": "Erweiterung",
             "function": "Funktion",
@@ -339,7 +339,7 @@
         },
         "views": {
             "title": "Ansichtsberechtigungen",
-            "description": "Ändern Sie das Layout, wie Benutzer Liman sehen.",
+            "description": "Ändern Sie das Layout, wie Benutzer Dz sehen.",
             "success": "Ansichtsberechtigungen erfolgreich aktualisiert.",
             "error": "Beim Aktualisieren der Ansichtsberechtigungen ist ein Fehler aufgetreten.",
             "sidebar": "Seitenleisten-Ansichtsoptionen",
@@ -350,20 +350,20 @@
             "dashboard_description": "Wählen Sie aus, welche Widgets die Benutzer im Dashboard sehen sollen.",
             "servers": "Anzahl der Server",
             "users": "Anzahl der Benutzer",
-            "version": "Liman-Version",
+            "version": "Dz-Version",
             "most_used_extensions": "Meistgenutzte Erweiterungen",
             "most_used_servers": "Meistgenutzte Server",
             "redirect": "Umleitungserweiterung",
-            "redirect_description": "Bestimmen Sie die Erweiterung, zu der Benutzer beim Anmelden bei Liman weitergeleitet werden. Fügen Sie diese Rolle den Benutzern sorgfältig hinzu.",
+            "redirect_description": "Bestimmen Sie die Erweiterung, zu der Benutzer beim Anmelden bei Dz weitergeleitet werden. Fügen Sie diese Rolle den Benutzern sorgfältig hinzu.",
             "redirect_placeholder": "Wählen Sie die Erweiterung zur Weiterleitung aus"
         },
-        "liman": {
-            "title": "liman Genehmigungen",
-            "description": "Autorisieren Sie Funktionen, die auf Liman ausgeführt werden.",
+        "Dz": {
+            "title": "dz Genehmigungen",
+            "description": "Autorisieren Sie Funktionen, die auf Dz ausgeführt werden.",
             "left": "Alle Berechtigungen",
             "right": "Erteilte Berechtigungen",
-            "success": "Die Liman-Berechtigungen wurden erfolgreich aktualisiert.",
-            "error": "Beim Aktualisieren der Liman-Berechtigungen ist ein Fehler aufgetreten."
+            "success": "Die Dz-Berechtigungen wurden erfolgreich aktualisiert.",
+            "error": "Beim Aktualisieren der Dz-Berechtigungen ist ein Fehler aufgetreten."
         },
         "servers": {
             "title": "Server-Berechtigungen",
@@ -451,7 +451,7 @@
         "form": {
             "host": {
                 "label": "Server-Adresse",
-                "subtext": "Ihre E-Mail-Serveradresse muss von Liman aufgelöst werden können."
+                "subtext": "Ihre E-Mail-Serveradresse muss von Dz aufgelöst werden können."
             },
             "port": {
                 "label": "Server-Port",
@@ -472,14 +472,14 @@
             },
             "active": {
                 "label": "E-Mail-Versand aktivieren",
-                "subtext": "Wenn Sie den E-Mail-Versand aktivieren, können Sie verschiedene informative E-Mails vom Liman erhalten."
+                "subtext": "Wenn Sie den E-Mail-Versand aktivieren, können Sie verschiedene informative E-Mails vom Dz erhalten."
             },
             "save": "Testen und Speichern"
         }
     },
     "external_notifications": {
         "title": "Externe Benachrichtigungen",
-        "description": "Sie können sicherstellen, dass Erweiterungsserver und externe Anwendungen Benachrichtigungen an Liman senden, indem Sie eine IP-Einschränkung festlegen.",
+        "description": "Sie können sicherstellen, dass Erweiterungsserver und externe Anwendungen Benachrichtigungen an Dz senden, indem Sie eine IP-Einschränkung festlegen.",
         "actions": {
             "open_menu": "Menü öffnen",
             "delete": "Löschen",
@@ -492,7 +492,7 @@
             "confirm": "Bist du sicher?",
             "no": "Abbrechen",
             "yes": "Bestätigen",
-            "confirm_delete": "Die ausgewählte externe Benachrichtigung <b>({{external_notification}})</b> wird dauerhaft aus dem Liman-System gelöscht. Dieser Vorgang kann Unterbrechungen in Ihren Benachrichtigungen verursachen. Möchten Sie fortfahren?"
+            "confirm_delete": "Die ausgewählte externe Benachrichtigung <b>({{external_notification}})</b> wird dauerhaft aus dem Dz-System gelöscht. Dieser Vorgang kann Unterbrechungen in Ihren Benachrichtigungen verursachen. Möchten Sie fortfahren?"
         },
         "name": "Name",
         "ip_address": "Zulässige IP-Adresse",
@@ -511,7 +511,7 @@
             "title": "Externe Benachrichtigung erstellen",
             "description": "Als Ergebnis dieses Prozesses wird eine externe Benachrichtigung in Ihrem System erstellt.",
             "alert_title": "Ihr externes Anwendungstoken",
-            "alert_description": "Geben Sie dieses Token nicht an Personen weiter, denen Sie nicht vertrauen. Ihre externen Anwendungen können mit diesem Token Benachrichtigungen an Liman senden.",
+            "alert_description": "Geben Sie dieses Token nicht an Personen weiter, denen Sie nicht vertrauen. Ihre externen Anwendungen können mit diesem Token Benachrichtigungen an Dz senden.",
             "name": "Name der externen Deklaration",
             "ip": "IP-Adresse",
             "subtext": "Sie können den Zugriff einschränken, indem Sie eine Subnetzadresse oder IP-Adresse eingeben, die Sie in diesem Abschnitt zulassen möchten. <br /> <b> Beispiel: 192.168.1.0/24</b>",
@@ -521,7 +521,7 @@
     "subscriptions": {
         "title": "Abonnements",
         "description": "Auf dieser Seite können Sie Ihre System- und Erweiterungsabonnements und -verlängerungen einsehen.",
-        "liman": "Liman-Support-Abonnement",
+        "Dz": "Dz-Support-Abonnement",
         "extension": "Verlängerungs-Abonnements",
         "issued_no": "Mitgliedsnummer",
         "issued": "Mitglied",
@@ -535,7 +535,7 @@
             "success": "Die Lizenz wurde erfolgreich hinzugefügt.",
             "error": "Beim Hinzufügen der Lizenz ist ein Fehler aufgetreten.",
             "title": "Lizenz hinzufügen",
-            "description": "Geben Sie in diesem Abschnitt die Lizenz ein, die Ihnen von HAVELSAN A.Ş. für Liman zur Verfügung gestellt wurde.",
+            "description": "Geben Sie in diesem Abschnitt die Lizenz ein, die Ihnen von HAVELSAN A.Ş. für Dz zur Verfügung gestellt wurde.",
             "license": "Lizenzinformationen",
             "cancel": "Abbrechen",
             "ok": "Hinzufügen"
@@ -567,7 +567,7 @@
         "description": "Hier können Sie die Anmeldetools konfigurieren, die für die Anmeldung verwendet werden können. Auf dieser Seite können Sie Keycloak- und LDAP-Logins einrichten.",
         "audit": {
             "title": "Zugriffsprotokolle",
-            "description": "Auf dieser Seite können Sie die von anderen Benutzern in Liman ausgeführten Vorgänge als Erweiterungen im Detail beobachten.",
+            "description": "Auf dieser Seite können Sie die von anderen Benutzern in Dz ausgeführten Vorgänge als Erweiterungen im Detail beobachten.",
             "username": "Nutzername",
             "ip_address": "IP-Adresse",
             "type": "Art des Vorgangs",
@@ -629,10 +629,10 @@
                     "description": "Beim Speichern der Keycloak-Einstellungen ist ein Fehler aufgetreten."
                 }
             },
-            "head_title": "Schlüsselumhang | Liman",
+            "head_title": "Schlüsselumhang | Dz",
             "page_header": {
                 "title": "Schlüssel-Umhang",
-                "description": "Sie können die Benutzeranmeldung bei Liman über das Keycloak-Authentifizierungsgateway aktivieren."
+                "description": "Sie können die Benutzeranmeldung bei Dz über das Keycloak-Authentifizierungsgateway aktivieren."
             },
             "form": {
                 "client_id": "Client-ID",
@@ -640,13 +640,13 @@
                 "client_secret": "Geheimer Clientschlüssel",
                 "info_secret": "Der Client Secret-Wert ist der Secret-Wert, der für den Client generiert wird, den Sie auf Keycloak erstellt haben.",
                 "redirect_url": "Weiterleitungs-URL",
-                "redirect_info": "Der Wert für die Umleitungs-URL sollte Ihre Liman-URL /keycloak/callback sein, und Sie sollten diesen Wert im Abschnitt \"Zulässige Umleitungs-URLs\" Ihres Clients angeben.",
+                "redirect_info": "Der Wert für die Umleitungs-URL sollte Ihre Dz-URL /keycloak/callback sein, und Sie sollten diesen Wert im Abschnitt \"Zulässige Umleitungs-URLs\" Ihres Clients angeben.",
                 "base_url": "Basis-URL",
                 "base_info": "Der Basis-URL-Wert ist Ihre Keycloak-URL.",
                 "realm": "Reich",
                 "realm_info": "Der Realm-Wert ist der Name des Realms, den Sie auf Keycloak erstellt haben.",
                 "integration": "Integration aktivieren",
-                "integration_info": "Wenn Sie die Integration aktivieren, können sich Benutzer auf Ihrem Keycloak-Server bei Liman anmelden.",
+                "integration_info": "Wenn Sie die Integration aktivieren, können sich Benutzer auf Ihrem Keycloak-Server bei Dz anmelden.",
                 "save": "Retten"
             }
         },
@@ -666,26 +666,26 @@
                     "description": "Beim Speichern der LDAP-Verbindungseinstellungen ist ein Fehler aufgetreten."
                 }
             },
-            "head_title": "LDAP-Verbindung | Liman",
+            "head_title": "LDAP-Verbindung | Dz",
             "page_header": {
                 "title": "LDAP-Verbindung",
-                "description": "Sie können die LDAP-Verbindung verwenden, wenn Sie sich bei Liman anmelden, und die Zugriffsberechtigungen im Detail konfigurieren."
+                "description": "Sie können die LDAP-Verbindung verwenden, wenn Sie sich bei Dz anmelden, und die Zugriffsberechtigungen im Detail konfigurieren."
             },
             "forms": {
                 "server_address": "Server-Adresse",
-                "server_info": "Geben Sie die Verbindungsadresse des verwendeten Active Directory-, Samba- oder LDAP-Anbieters ein. Diese Verbindungsadresse muss von Ihrem Liman-Server aufgelöst werden können.",
+                "server_info": "Geben Sie die Verbindungsadresse des verwendeten Active Directory-, Samba- oder LDAP-Anbieters ein. Diese Verbindungsadresse muss von Ihrem Dz-Server aufgelöst werden können.",
                 "object_guid": "Objekt-GUID-Feld",
                 "object_guid_info": "Schreiben Sie den Namen des objectguid-Felds, das aktiv in Ihrem LDAP-Schema verwendet wird. Obwohl der Wert dieses Feldes in der Regel objectguid ist, kann er in einigen Installationen variieren.",
                 "mail": "E-Mail-Feld",
                 "mail_info": "Geben Sie den Namen des E-Mail-Felds ein, das aktiv in Ihrem LDAP-Schema verwendet wird. Obwohl der Wert dieses Feldes in der Regel mail ist, kann er in einigen Installationen variieren.",
                 "integration": "Integration aktivieren",
-                "integration_info": "Wenn Sie die Integration aktivieren, können sich LDAP-Benutzer, denen Sie die Berechtigung erteilt haben, mit ihrem Benutzernamen bei Liman anmelden.",
+                "integration_info": "Wenn Sie die Integration aktivieren, können sich LDAP-Benutzer, denen Sie die Berechtigung erteilt haben, mit ihrem Benutzernamen bei Dz anmelden.",
                 "save": "Retten"
             }
         },
         "permissions": {
             "title": "LDAP-Zugriffsberechtigungen",
-            "description": "Auf dieser Seite können Sie im Detail einstellen, welche LDAP-Gruppen und Benutzer sich bei Liman anmelden können und welche nicht.",
+            "description": "Auf dieser Seite können Sie im Detail einstellen, welche LDAP-Gruppen und Benutzer sich bei Dz anmelden können und welche nicht.",
             "login_success": "Wenn Sie sich erfolgreich anmelden, können Sie Ihre Vorgänge ausführen.",
             "login_error": "Login fehlgeschlagen, bitte überprüfen Sie Ihre Angaben.",
             "user_success": "Die Benutzerliste wurde erfolgreich aktualisiert.",
@@ -715,19 +715,19 @@
     },
     "health": {
         "title": "Gesundheitszustand",
-        "description": "Sie können den Integritätsstatus des zentralen Liman-Verwaltungssystems anzeigen und Empfehlungen zur Sicherheitsverbesserung einfach anwenden.",
+        "description": "Sie können den Integritätsstatus des zentralen DZ-Verwaltungssystems anzeigen und Empfehlungen zur Sicherheitsverbesserung einfach anwenden.",
         "admin_account_title": "Standardstatus des Administratorkontos",
-        "admin_account_description": "Zu Ihrer Sicherheit empfehlen wir Ihnen, das administrator@liman.dev Konto zu entfernen, das standardmäßig enthalten ist. Die Verwendung des Standardkontos birgt das Risiko, Situationen wie Bruteforce zu verursachen.",
+        "admin_account_description": "Zu Ihrer Sicherheit empfehlen wir Ihnen, das administrator@dz.dev Konto zu entfernen, das standardmäßig enthalten ist. Die Verwendung des Standardkontos birgt das Risiko, Situationen wie Bruteforce zu verursachen.",
         "go_to_user_settings": "Gehen Sie zu den Benutzereinstellungen",
-        "dns_check_title": "Liman-Server-DNS-Prüfung",
-        "dns_check_description": "Sie müssen DNS so konfigurieren, dass externe Internet- und IP-Adressen in Ihrem Netzwerk für Ihren Liman-Server aufgelöst werden.",
+        "dns_check_title": "DZ-Server-DNS-Prüfung",
+        "dns_check_description": "Sie müssen DNS so konfigurieren, dass externe Internet- und IP-Adressen in Ihrem Netzwerk für Ihren DZ-Server aufgelöst werden.",
         "go_to_dns_settings": "Gehen Sie zu den DNS-Einstellungen",
         "ssl_check_title": "Überprüfung der SSL-Zertifikatszeit",
-        "ssl_check_description": "Das auf Ihrem Liman-Server definierte Zertifikat läuft demnächst ab. Es wird empfohlen, es zu erneuern.",
+        "ssl_check_description": "Das auf Ihrem DZ-Server definierte Zertifikat läuft demnächst ab. Es wird empfohlen, es zu erneuern.",
         "ssl_self_title": "Selbstsigniertes Zertifikat",
         "ssl_self_description": "Wir haben festgestellt, dass Sie ein selbstsigniertes Zertifikat verwenden. Wenn Sie über ein Platzhalterzertifikat verfügen, das Sie in Ihrer Organisation verwenden, empfehlen wir Ihnen, die Definition über HAVELSAN A.Ş.",
         "high_availability_service_title": "Status des Hochverfügbarkeitsdiensts",
-        "high_availability_service_description": "Der Hochverfügbarkeitsdienst von Liman ist nicht aktiv. Wenn dieser Dienst nicht aktiviert ist, kann Liman im Falle eines serverbezogenen Problems nicht redundant arbeiten.",
+        "high_availability_service_description": "Der Hochverfügbarkeitsdienst von DZ ist nicht aktiv. Wenn dieser Dienst nicht aktiviert ist, kann DZ im Falle eines serverbezogenen Problems nicht redundant arbeiten.",
         "manual_sync": "Manuelles Synchronisieren",
         "manual_sync_success": "Die Synchronisierungsanforderung wurde gesendet. Die Server führen die Synchronisierung untereinander aus."
     },
@@ -736,7 +736,7 @@
         "description": "Auf dieser Seite können Sie Änderungen an den DNS-Einstellungen des Systems, Zertifikatinstallationen und Protokollumleitungen vornehmen.",
         "certificates": {
             "title": "Atteste",
-            "description": "Von hier aus können Sie die Zertifikate hinzufügen, die der Liman-Server akzeptiert.",
+            "description": "Von hier aus können Sie die Zertifikate hinzufügen, die der DZ-Server akzeptiert.",
             "updated_at": "Zuletzt aktualisiert",
             "unknown": "Unbekannt",
             "add": "Hinzufügen",
@@ -745,7 +745,7 @@
                 "success": "Das Zertifikat wurde erfolgreich erstellt.",
                 "error": "Beim Erstellen des Zertifikats ist ein Fehler aufgetreten.",
                 "title": "Zertifikat hinzufügen",
-                "description": "Das Zertifikat des Servers, für den Sie den Hostnamen und die Portinformationen angeben, wird an das Liman-System übertragen.",
+                "description": "Das Zertifikat des Servers, für den Sie den Hostnamen und die Portinformationen angeben, wird an das DZ-System übertragen.",
                 "client_details": "Kundendaten",
                 "ip_address": "IP-Adresse",
                 "fetch_details": "Abrufen von Zertifikatsdetails",
@@ -768,7 +768,7 @@
                 "delete": {
                     "button": "Löschen",
                     "title": "Bist du sicher?",
-                    "description": "Das ausgewählte Zertifikat <b>({{name}})</b> wird vollständig aus dem Liman-System gelöscht. Der Zugriff auf Erweiterungen kann durch diesen Vorgang unterbrochen werden. Möchten Sie fortfahren?",
+                    "description": "Das ausgewählte Zertifikat <b>({{name}})</b> wird vollständig aus dem Dz-System gelöscht. Der Zugriff auf Erweiterungen kann durch diesen Vorgang unterbrochen werden. Möchten Sie fortfahren?",
                     "cancel": "Abbrechen",
                     "delete": "Bestätigen",
                     "success": "Das Zertifikat wurde erfolgreich gelöscht.",
@@ -778,7 +778,7 @@
         },
         "dns": {
             "title": "DNS-Einstellungen",
-            "description": "Sie können DNS-Einstellungen vornehmen, die es Liman ermöglichen, Endpunkte aufzulösen, um eine Verbindung herzustellen, und Active Directory-Server.",
+            "description": "Sie können DNS-Einstellungen vornehmen, die es Dz ermöglichen, Endpunkte aufzulösen, um eine Verbindung herzustellen, und Active Directory-Server.",
             "dns1_validation": "Das Feld DNS 1 darf nicht leer sein.",
             "success": "Die DNS-Einstellungen wurden erfolgreich aktualisiert.",
             "error": "Beim Aktualisieren der DNS-Einstellungen ist ein Fehler aufgetreten.",
@@ -786,7 +786,7 @@
         },
         "logrotation": {
             "title": "Log-Umleitung",
-            "description": "Ermöglicht es Ihnen, wichtige Systemprotokolle und Meldungen von Liman über rsyslog umzuleiten.",
+            "description": "Ermöglicht es Ihnen, wichtige Systemprotokolle und Meldungen von Dz über rsyslog umzuleiten.",
             "success": "Die Einstellungen für die Protokollumleitung wurden erfolgreich aktualisiert.",
             "error": "Beim Aktualisieren der Einstellungen für die Protokollumleitung ist ein Fehler aufgetreten.",
             "ip_address": "IP-Adresse",
@@ -796,7 +796,7 @@
         },
         "tweaks": {
             "title": "Zwickt",
-            "description": "Auf dieser Seite können Sie die Feinabstimmungseinstellungen für Liman ändern.",
+            "description": "Auf dieser Seite können Sie die Feinabstimmungseinstellungen für Dz ändern.",
             "success": "Optimierungen wurden erfolgreich gespeichert.",
             "error": "Beim Speichern von Positionsveränderungen ist ein Fehler aufgetreten.",
             "validation": "Bitte geben Sie eine gültige Nummer ein.",
@@ -810,19 +810,19 @@
             },
             "APP_NOTIFICATION_EMAIL": {
                 "label": "System-E-Mail",
-                "subtext": "Die E-Mail-Adresse, die Sie in dieses Feld eingeben, wird von Liman verwendet, um Ihnen Benachrichtigungen und Warnungen zu senden."
+                "subtext": "Die E-Mail-Adresse, die Sie in dieses Feld eingeben, wird von Dz verwendet, um Ihnen Benachrichtigungen und Warnungen zu senden."
             },
             "APP_URL": {
                 "label": "Bewerbungsadresse",
-                "subtext": "Die Adresse des Liman-Systems, die in E-Mails und Benachrichtigungen hinzugefügt werden soll."
+                "subtext": "Die Adresse des Dz-Systems, die in E-Mails und Benachrichtigungen hinzugefügt werden soll."
             },
             "EXTENSION_TIMEOUT": {
                 "label": "Zeitüberschreitung bei Verlängerungsanforderung",
-                "subtext": "Der Timeout-Zeitraum, der in Anforderungen verwendet werden soll, die von Liman an Erweiterungen gesendet werden."
+                "subtext": "Der Timeout-Zeitraum, der in Anforderungen verwendet werden soll, die von Dz an Erweiterungen gesendet werden."
             },
             "APP_DEBUG": {
                 "label": "Entwickler-Modus",
-                "subtext": "Wenn diese Option aktiviert ist, sendet das Liman-System detailliertere Protokolle und Änderungsfehlermeldungen."
+                "subtext": "Wenn diese Option aktiviert ist, sendet das Dz-System detailliertere Protokolle und Änderungsfehlermeldungen."
             },
             "EXTENSION_DEVELOPER_MODE": {
                 "label": "Entwicklermodus für Erweiterungen",
@@ -834,7 +834,7 @@
                 "ext_log": "Erweiterungs-Protokoll",
                 "detailed_ext_log": "Detaillierte Erweiterungsprotokolle",
                 "all": "Alle Vorgänge protokollieren",
-                "subtext": "In diesem Abschnitt können Sie das Protokollierungsverhalten von Liman ändern."
+                "subtext": "In diesem Abschnitt können Sie das Protokollierungsverhalten von Dz ändern."
             },
             "LDAP_IGNORE_CERT": {
                 "label": "LDAP-Zertifikatsprüfung deaktivieren",
@@ -842,7 +842,7 @@
             },
             "JWT_TTL": {
                 "label": "JWT-Lebensdauer",
-                "subtext": "Die Lebensdauer des JWT-Tokens, der von Liman an Benutzer gesendet wird."
+                "subtext": "Die Lebensdauer des JWT-Tokens, der von Dz an Benutzer gesendet wird."
             },
             "save": "Retten"
         }
@@ -867,7 +867,7 @@
                 "success_msg": "Der Server wurde erfolgreich gelöscht.",
                 "error_msg": "Beim Löschen des Servers ist ein Fehler aufgetreten.",
                 "title": "Bist du sicher?",
-                "description": "Der ausgewählte Server <b>({{server}})</b> wird vollständig aus dem Liman-System entfernt. Möchten Sie fortfahren?",
+                "description": "Der ausgewählte Server <b>({{server}})</b> wird vollständig aus dem Dz-System entfernt. Möchten Sie fortfahren?",
                 "cancel": "Abbrechen",
                 "delete": "Bestätigen"
             }

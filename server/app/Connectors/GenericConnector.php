@@ -8,7 +8,7 @@ use GuzzleHttp\Exception\GuzzleException;
 
 /**
  * Generic Connector
- * This class connects server and fiber render engine together and uses returned data in Liman
+ * This class connects server and fiber render engine together and uses returned data in Dz
  */
 class GenericConnector
 {
@@ -98,12 +98,12 @@ class GenericConnector
             if (env('APP_DEBUG', false)) {
                 return abort(
                     504,
-                    __('Liman render service is not working or crashed. ').$message,
+                    __('Dz render service is not working or crashed. ').$message,
                 );
             } else {
                 return abort(
                     504,
-                    __('Liman render service is not working or crashed. '),
+                    __('Dz render service is not working or crashed. '),
                 );
             }
         }

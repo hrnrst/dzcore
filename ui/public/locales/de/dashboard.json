@@ -7,8 +7,8 @@
         "show_all_extensions": "Alle Erweiterungen anzeigen",
         "user_count": "Benutzeranzahl",
         "show_all_users": "Alle Benutzer anzeigen",
-        "total_user_count": "Gesamtzahl der Liman-Benutzer",
-        "version": "Liman-Version"
+        "total_user_count": "Gesamtzahl der Dz-Benutzer",
+        "version": "Dz-Version"
     },
     "most_used_extensions": {
         "title": "Am häufigsten verwendete Erweiterungen",

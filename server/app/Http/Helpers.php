@@ -70,12 +70,12 @@ if (! function_exists('updateSystemSettings')) {
 
         SystemSettings::updateOrCreate(
             ['key' => 'SSL_PUBLIC_KEY'],
-            ['data' => file_get_contents('/liman/certs/liman.crt')]
+            ['data' => file_get_contents('/dz/certs/dz.crt')]
         );
 
         SystemSettings::updateOrCreate(
             ['key' => 'SSL_PRIVATE_KEY'],
-            ['data' => file_get_contents('/liman/certs/liman.key')]
+            ['data' => file_get_contents('/dz/certs/dz.key')]
         );
         $sshPublic = SystemSettings::where([
             'key' => 'SSH_PUBLIC',
@@ -83,13 +83,13 @@ if (! function_exists('updateSystemSettings')) {
         if (! $sshPublic) {
             $privatekey = \phpseclib3\Crypt\RSA::createKey();
             $publickey = $privatekey->getPublicKey();
-            `mkdir -p /home/liman/.ssh`;
-            file_put_contents('/home/liman/.ssh/authorized_keys', $publickey);
-            file_put_contents('/home/liman/.ssh/liman_pub', $publickey);
-            file_put_contents('/home/liman/.ssh/liman_priv', $privatekey);
+            `mkdir -p /home/dz/.ssh`;
+            file_put_contents('/home/dz/.ssh/authorized_keys', $publickey);
+            file_put_contents('/home/dz/.ssh/dz_pub', $publickey);
+            file_put_contents('/home/dz/.ssh/dz_priv', $privatekey);
 
-            chmod('/home/liman/.ssh/liman_pub', 0600);
-            chmod('/home/liman/.ssh/liman_priv', 0600);
+            chmod('/home/dz/.ssh/dz_pub', 0600);
+            chmod('/home/dz/.ssh/dz_priv', 0600);
 
             SystemSettings::create([
                 'key' => 'SSH_PUBLIC',
@@ -128,7 +128,7 @@ if (! function_exists('receiveSystemSettings')) {
         ])->first();
 
         if ($public_key) {
-            file_put_contents('/liman/certs/liman.crt', $public_key->data);
+            file_put_contents('/dz/certs/dz.crt', $public_key->data);
         }
 
         $private_key = SystemSettings::where([
@@ -136,7 +136,7 @@ if (! function_exists('receiveSystemSettings')) {
         ])->first();
 
         if ($private_key) {
-            file_put_contents('/liman/certs/liman.key', $private_key->data);
+            file_put_contents('/dz/certs/dz.key', $private_key->data);
         }
 
         $sshPublic = SystemSettings::where([
@@ -144,13 +144,13 @@ if (! function_exists('receiveSystemSettings')) {
         ])->first();
 
         if ($sshPublic) {
-            `mkdir -p /home/liman/.ssh`;
+            `mkdir -p /home/dz/.ssh`;
             file_put_contents(
-                '/home/liman/.ssh/authorized_keys',
+                '/home/dz/.ssh/authorized_keys',
                 $sshPublic->data
             );
-            file_put_contents('/home/liman/.ssh/liman_pub', $sshPublic->data);
-            chmod('/home/liman/.ssh/liman_pub', 0600);
+            file_put_contents('/home/dz/.ssh/dz_pub', $sshPublic->data);
+            chmod('/home/dz/.ssh/dz_pub', 0600);
         }
 
         $sshPrivate = SystemSettings::where([
@@ -255,7 +255,7 @@ if (! function_exists('getLimanPermissions')) {
 
 if (! function_exists('getVersion')) {
     /**
-     * Get version of liman
+     * Get version of dz
      *
      * @return mixed
      */
@@ -267,7 +267,7 @@ if (! function_exists('getVersion')) {
 
 if (! function_exists('getVersionCode')) {
     /**
-     * Get version code of liman
+     * Get version code of dz
      *
      * @return mixed
      */
@@ -325,7 +325,7 @@ if (! function_exists('retrieveCertificate')) {
                 'ssl://' . $hostname . ':' . $port,
                 $errno,
                 $errstr,
-                intval(config('liman.server_connection_timeout')),
+                intval(config('dz.server_connection_timeout')),
                 STREAM_CLIENT_CONNECT,
                 $get
             );
@@ -339,7 +339,7 @@ if (! function_exists('retrieveCertificate')) {
                     'tlsv1.1://' . $hostname . ':' . $port,
                     $errno,
                     $errstr,
-                    intval(config('liman.server_connection_timeout')),
+                    intval(config('dz.server_connection_timeout')),
                     STREAM_CLIENT_CONNECT,
                     $get
                 );
@@ -489,7 +489,7 @@ if (! function_exists('getExtensionJson')) {
      */
     function getExtensionJson($extension_name)
     {
-        $extension_json = '/liman/extensions/' .
+        $extension_json = '/dz/extensions/' .
             strtolower((string) $extension_name) .
             DIRECTORY_SEPARATOR .
             'db.json';

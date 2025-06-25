@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  limancore:
+  dzcore:
     build:
       context: https://github.com/hrnrst/dzcore.git#master
       dockerfile: server/Dockerfile
@@ -9,22 +9,22 @@ services:
         condition: service_healthy
     restart: always
     environment:
-      - REDIS_HOST=liman-redis
-      - REDIS_PASS=liman
+      - REDIS_HOST=dz-redis
+      - REDIS_PASS=dz
       - REDIS_PORT=6379
-      - DB_HOST=liman-db
-      - DB_DATABASE=liman
-      - DB_USERNAME=liman
+      - DB_HOST=dz-db
+      - DB_DATABASE=dz
+      - DB_USERNAME=dz
       - DB_PORT=5432
-      - DB_PASS=liman
+      - DB_PASS=dz
       - NGINX_PORT=443
-    container_name: liman-core
+    container_name: dz-core
     tty: true
     ports:
       - '443:443'
       - '3000:3000'
     networks:
-      - liman-net
+      - dz-net
     dns:
       - 127.0.0.1
       - 8.8.8.8
@@ -32,47 +32,47 @@ services:
 
   db:
     image: postgres:15
-    container_name: liman-db
+    container_name: dz-db
     restart: always
     environment:
-      - POSTGRES_USER=liman
-      - POSTGRES_PASSWORD=liman
-      - POSTGRES_DB=liman
+      - POSTGRES_USER=dz
+      - POSTGRES_PASSWORD=dz
+      - POSTGRES_DB=dz
     volumes:
       - pgdata:/var/lib/postgresql/data
 
     healthcheck:
-      test: ["CMD", "pg_isready", "-q", "-d", "liman", "-U", "liman"]
+      test: ["CMD", "pg_isready", "-q", "-d", "dz", "-U", "dz"]
       interval: 5s
       timeout: 5s
       retries: 5
     networks:
-      - liman-net
+      - dz-net
 
   redis:
     image: redis
-    container_name: liman-redis
+    container_name: dz-redis
     environment:
-      - REDIS_PASSWORD=liman
+      - REDIS_PASSWORD=dz
       - REDIS_DISABLE_COMMANDS=CONFIG
     command: >
-      --requirepass liman --protected-mode yes
+      --requirepass dz --protected-mode yes
     networks:
-      - liman-net
+      - dz-net
 
   webssh:
     image: limanmys/webssh:latest
     restart: always
-    container_name: liman-webssh
+    container_name: dz-webssh
     networks:
-      - liman-net
+      - dz-net
 
   guacd:
     image: guacamole/guacd
     container_name: guacd
     restart: always
     networks:
-      - liman-net
+      - dz-net
 
   mysql:
     image: mysql:5.7
@@ -89,7 +89,7 @@ services:
     volumes:
       - mysqldata:/var/lib/mysql
     networks:
-      - liman-net
+      - dz-net
 
   guacamole:
     image: guacamole/guacamole
@@ -105,7 +105,7 @@ services:
       MYSQL_USER: guacamole_user
       MYSQL_PASSWORD: guacpass
     networks:
-      - liman-net
+      - dz-net
 
 volumes:
   pgdata:
@@ -118,6 +118,6 @@ volumes:
     driver: local
 
 networks:
-  liman-net:
-    name: liman-net
+  dz-net:
+    name: dz-net
     driver: bridge
