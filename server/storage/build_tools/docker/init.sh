@@ -29,12 +29,12 @@ chown -R dz:dz /dz/ui
 chmod -R 700 /dz/scripts
 chown -R dz:dz /dz/scripts
 
-chmod +x /dz/server/storage/dz_render
-chmod +x /dz/server/storage/dz_system
-chmod +x /dz/server/storage/dzctl
+chmod 755 /dz/server/storage/dz_render
+chmod 755 /dz/server/storage/dz_system
+chmod 755 /dz/server/storage/dzctl
 
-runuser dz -c '$(which gpg) --batch --yes --delete-keys aciklab@havelsan.com.tr'
-runuser dz -c '$(which gpg) --import /dz/server/storage/aciklab.public'
+#runuser dz -c '$(which gpg) --batch --yes --delete-keys aciklab@havelsan.com.tr'
+#runuser dz -c '$(which gpg) --import /dz/server/storage/aciklab.public'
 
 # Generate environment variables if does not exist
 if [ -f "/dz/server/.env" ]; then
