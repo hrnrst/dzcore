@@ -325,7 +325,7 @@ if (! function_exists('retrieveCertificate')) {
                 'ssl://' . $hostname . ':' . $port,
                 $errno,
                 $errstr,
-                intval(config('dz.server_connection_timeout')),
+                intval(config('liman.server_connection_timeout')),
                 STREAM_CLIENT_CONNECT,
                 $get
             );
@@ -339,7 +339,7 @@ if (! function_exists('retrieveCertificate')) {
                     'tlsv1.1://' . $hostname . ':' . $port,
                     $errno,
                     $errstr,
-                    intval(config('dz.server_connection_timeout')),
+                    intval(config('liman.server_connection_timeout')),
                     STREAM_CLIENT_CONNECT,
                     $get
                 );
