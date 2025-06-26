@@ -31,7 +31,7 @@ class ConsoleController extends Controller
     {
         // Observer'dan çağrıldığında auth kontrolü yapma
         if (auth('api')->check()) {
-            if (! Permission::can(auth('api')->user()->id, 'liman', 'id', 'server_console')) {
+            if (! Permission::can(auth('api')->user()->id, 'dz', 'id', 'server_console')) {
                 throw new JsonResponseException([
                     'message' => 'Bu işlemi yapmak için yetkiniz yok!'
                 ], '', Response::HTTP_FORBIDDEN);

@@ -19,7 +19,7 @@ class ServiceController extends Controller
 {
     public function __construct()
     {
-        if (! Permission::can(auth('api')->user()->id, 'liman', 'id', 'server_services')) {
+        if (! Permission::can(auth('api')->user()->id, 'dz', 'id', 'server_services')) {
             throw new JsonResponseException([
                 'message' => 'Bu işlemi yapmak için yetkiniz yok!'
             ], '', Response::HTTP_FORBIDDEN);

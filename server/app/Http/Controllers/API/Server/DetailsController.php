@@ -55,7 +55,7 @@ class DetailsController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
-        if (! Permission::can(auth('api')->user()->id, 'liman', 'id', 'server_details')) {
+        if (! Permission::can(auth('api')->user()->id, 'dz', 'id', 'server_details')) {
             throw new JsonResponseException([
                 'message' => 'Bu işlemi yapmak için yetkiniz yok!'
             ], '', Response::HTTP_FORBIDDEN);
@@ -101,7 +101,7 @@ class DetailsController extends Controller
      */
     public function stats()
 {
-    if (!Permission::can(auth('api')->user()->id, 'liman', 'id', 'server_details')) {
+    if (!Permission::can(auth('api')->user()->id, 'dz', 'id', 'server_details')) {
         throw new JsonResponseException([
             'message' => 'Bu işlemi yapmak için yetkiniz yok!'
         ], '', Response::HTTP_FORBIDDEN);
@@ -143,7 +143,7 @@ class DetailsController extends Controller
             ? "/opt/limanpyenv/bin/python"
             : "python3"; // local ya da varsayılan sistem python'ı
 
-        $cmd = "$pythonPath /liman/scripts/win_metrics.py '$ip' '$username' '$password'";
+        $cmd = "$pythonPath /dz/scripts/win_metrics.py '$ip' '$username' '$password'";
         $output = shell_exec($cmd);
 
         if (!$output) {
@@ -191,7 +191,7 @@ class DetailsController extends Controller
      */
     public function specs()
     {
-        if (! Permission::can(auth('api')->user()->id, 'liman', 'id', 'server_details')) {
+        if (! Permission::can(auth('api')->user()->id, 'dz', 'id', 'server_details')) {
             throw new JsonResponseException([
                 'message' => 'Bu işlemi yapmak için yetkiniz yok!'
             ], '', Response::HTTP_FORBIDDEN);
@@ -210,7 +210,7 @@ class DetailsController extends Controller
             ? "/opt/limanpyenv/bin/python"
             : "python3"; // local ya da varsayılan sistem python'ı
 
-            $cmd = "$pythonPath /liman/scripts/win_stats.py '$ip' '$username' '$password'";
+            $cmd = "$pythonPath /dz/scripts/win_stats.py '$ip' '$username' '$password'";
             $output = shell_exec($cmd);
         
             if (!$output) {
@@ -266,7 +266,7 @@ class DetailsController extends Controller
      */
     public function topCpuProcesses()
     {
-        if (! Permission::can(auth('api')->user()->id, 'liman', 'id', 'server_details')) {
+        if (! Permission::can(auth('api')->user()->id, 'dz', 'id', 'server_details')) {
             throw new JsonResponseException([
                 'message' => 'Bu işlemi yapmak için yetkiniz yok!'
             ], '', Response::HTTP_FORBIDDEN);
@@ -281,7 +281,7 @@ class DetailsController extends Controller
             ? "/opt/limanpyenv/bin/python"
             : "python3"; // local ya da varsayılan sistem python'ı
 
-            $cmd = "$pythonPath /liman/scripts/win_top_cpu.py '$ip' '$username' '$password'";
+            $cmd = "$pythonPath /dz/scripts/win_top_cpu.py '$ip' '$username' '$password'";
             $output = shell_exec($cmd);
 
             if (!$output) {
@@ -316,7 +316,7 @@ class DetailsController extends Controller
      */
     public function topMemoryProcesses()
     {
-        if (!Permission::can(auth('api')->user()->id, 'liman', 'id', 'server_details')) {
+        if (!Permission::can(auth('api')->user()->id, 'dz', 'id', 'server_details')) {
             throw new JsonResponseException([
                 'message' => 'Bu işlemi yapmak için yetkiniz yok!'
             ], '', Response::HTTP_FORBIDDEN);
@@ -333,7 +333,7 @@ class DetailsController extends Controller
             ? "/opt/limanpyenv/bin/python"
             : "python3"; // local ya da varsayılan sistem python'ı
 
-            $cmd = "$pythonPath /liman/scripts/win_top_ram.py '$ip' '$username' '$password'";
+            $cmd = "$pythonPath /dz/scripts/win_top_ram.py '$ip' '$username' '$password'";
             $output = shell_exec($cmd);
 
             if (!$output) {
@@ -375,7 +375,7 @@ class DetailsController extends Controller
      */
         public function topDiskUsage()
     {
-        if (! Permission::can(auth('api')->user()->id, 'liman', 'id', 'server_details')) {
+        if (! Permission::can(auth('api')->user()->id, 'dz', 'id', 'server_details')) {
             throw new JsonResponseException([
                 'message' => 'Bu işlemi yapmak için yetkiniz yok!'
             ], '', Response::HTTP_FORBIDDEN);
@@ -392,7 +392,7 @@ class DetailsController extends Controller
             ? "/opt/limanpyenv/bin/python"
             : "python3"; // local ya da varsayılan sistem python'ı
 
-            $cmd = "$pythonPath /liman/scripts/win_disk_usage.py '$ip' '$username' '$password'";
+            $cmd = "$pythonPath /dz/scripts/win_disk_usage.py '$ip' '$username' '$password'";
             $output = shell_exec($cmd);
 
             if (!$output) {

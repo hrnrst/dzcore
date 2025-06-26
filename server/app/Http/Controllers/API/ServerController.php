@@ -17,7 +17,7 @@ use mervick\aesEverywhere\AES256;
 class ServerController extends Controller
 {
     /**
-     * This function creates server in Liman database
+     * This function creates server in Dz database
      *
      * @return JsonResponse|Response
      *
@@ -25,7 +25,7 @@ class ServerController extends Controller
      */
     public function create(Request $request)
     {
-        if (! Permission::can(auth('api')->user()->id, 'liman', 'id', 'add_server')) {
+        if (! Permission::can(auth('api')->user()->id, 'dz', 'id', 'add_server')) {
             return response()->json([
                 'message' => 'Bu işlemi yapmak için izniniz yok.',
             ], 403);
@@ -84,7 +84,7 @@ class ServerController extends Controller
      */
     public function update(Request $request)
     {
-        if (! Permission::can(auth('api')->user()->id, 'liman', 'id', 'update_server')) {
+        if (! Permission::can(auth('api')->user()->id, 'dz', 'id', 'update_server')) {
             throw new JsonResponseException([
                 'message' => 'Bu işlemi yapmak için yetkiniz yok!',
             ], '', Response::HTTP_FORBIDDEN);
@@ -97,7 +97,7 @@ class ServerController extends Controller
             ], Response::HTTP_NOT_FOUND);
         }
 
-        if (! Permission::can(auth('api')->user()->id, 'liman', 'id', 'server_details')) {
+        if (! Permission::can(auth('api')->user()->id, 'dz', 'id', 'server_details')) {
             throw new JsonResponseException([
                 'message' => 'Bu işlemi yapmak için yetkiniz yok!',
             ], '', Response::HTTP_FORBIDDEN);
@@ -162,7 +162,7 @@ class ServerController extends Controller
             ], '', Response::HTTP_FORBIDDEN);
         }
 
-        if (! Permission::can(auth('api')->user()->id, 'liman', 'id', 'server_details')) {
+        if (! Permission::can(auth('api')->user()->id, 'dz', 'id', 'server_details')) {
             throw new JsonResponseException([
                 'message' => 'Bu işlemi yapmak için yetkiniz yok!',
             ], '', Response::HTTP_FORBIDDEN);
