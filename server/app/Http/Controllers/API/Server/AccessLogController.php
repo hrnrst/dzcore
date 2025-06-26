@@ -24,7 +24,7 @@ class AccessLogController extends Controller
             ], Response::HTTP_UNAUTHORIZED);
         }
 
-        if (! Permission::can(auth('api')->user()->id, 'liman', 'id', 'view_logs')) {
+        if (! Permission::can(auth('api')->user()->id, 'dz', 'id', 'view_logs')) {
             throw new JsonResponseException(
                 ['message' => 'Sunucu günlük kayıtlarını görüntülemek için yetkiniz yok.'],
                 Response::HTTP_FORBIDDEN
@@ -47,7 +47,7 @@ class AccessLogController extends Controller
     public function index()
     {
         $data = Command::runLiman(
-            'cat /liman/logs/liman_new.log | grep @{:user_id} | grep @{:server_id} | grep -v "recover middleware catch" | tail -{:page} | tac',
+            'cat /dz/logs/dz_new.log | grep @{:user_id} | grep @{:server_id} | grep -v "recover middleware catch" | tail -{:page} | tac',
             [
                 'page' => 500,
                 'user_id' => strlen(request('log_user_id')) > 5 ? request('log_user_id') : '',
@@ -124,7 +124,7 @@ class AccessLogController extends Controller
     public function details()
     {
         $query = request('log_id');
-        $data = Command::runLiman('grep @{:query} /liman/logs/liman_new.log', [
+        $data = Command::runLiman('grep @{:query} /dz/logs/dz_new.log', [
             'query' => $query,
         ]);
         if ($data == '') {

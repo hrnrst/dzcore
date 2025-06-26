@@ -132,7 +132,7 @@ class HighAvailabilitySyncer implements ShouldQueue
         $needsToBeUpdated = [];
         
         foreach ($extensionList as $extension) {
-            $path = '/liman/extensions/' . $extension->name;
+            $path = '/dz/extensions/' . $extension->name;
 
             // Determine if folder does exist
             if (!is_dir($path)) {
@@ -191,7 +191,7 @@ class HighAvailabilitySyncer implements ShouldQueue
             throw new Exception("error when extracting zip file");
         }
 
-        $extension_folder = '/liman/extensions/' . strtolower((string) $extension['name']);
+        $extension_folder = '/dz/extensions/' . strtolower((string) $extension['name']);
 
         Command::runLiman('mkdir -p @{:extension_folder}', [
             'extension_folder' => $extension_folder,
@@ -210,7 +210,7 @@ class HighAvailabilitySyncer implements ShouldQueue
         $system->userAdd($extension['id']);
 
         // Create key file and fill the content
-        $passPath = '/liman/keys' . DIRECTORY_SEPARATOR . $extension['id'];
+        $passPath = '/dz/keys' . DIRECTORY_SEPARATOR . $extension['id'];
         Command::runSystem('chmod 760 @{:path}', [
             'path' => $passPath,
         ]);
@@ -289,7 +289,7 @@ class HighAvailabilitySyncer implements ShouldQueue
             throw new Exception("error when extracting zip file");
         }
 
-        $extension_folder = '/liman/extensions/' . strtolower((string) $extension['name']);
+        $extension_folder = '/dz/extensions/' . strtolower((string) $extension['name']);
 
         Command::runLiman('mkdir -p @{:extension_folder}', [
             'extension_folder' => $extension_folder,

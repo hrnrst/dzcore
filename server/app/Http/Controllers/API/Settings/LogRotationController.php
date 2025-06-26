@@ -17,7 +17,7 @@ class LogRotationController extends Controller
     public function getConfiguration()
     {
         try {
-            $config = Command::runSystem('cat /etc/rsyslog.d/liman.conf');
+            $config = Command::runSystem('cat /etc/rsyslog.d/dz.conf');
 
             $config = explode("\n", $config);
     
@@ -86,9 +86,9 @@ class LogRotationController extends Controller
         error_reporting(E_ALL);
 
         $template = 'module(load="imfile")
-input(type="imfile" File="/liman/logs/liman_new.log" Tag="engine" ruleset="remote")
+input(type="imfile" File="/dz/logs/dz_new.log" Tag="engine" ruleset="remote")
 ruleset(name="remote"){action(type="omfwd" target="<TARGET>" port="<PORT>" protocol="<PROTOCOL>")}
-input(type="imfile" File="/liman/logs/liman.log" Tag="liman" ruleset="remote")
+input(type="imfile" File="/dz/logs/dz.log" Tag="dz" ruleset="remote")
 ruleset(name="remote"){action(type="omfwd" target="<TARGET>" port="<PORT>" protocol="<PROTOCOL>")}';
 
         $template = str_replace(
@@ -109,7 +109,7 @@ ruleset(name="remote"){action(type="omfwd" target="<TARGET>" port="<PORT>" proto
             $template
         );
 
-        Command::runSystem("echo ':text:' > /etc/rsyslog.d/liman.conf", [
+        Command::runSystem("echo ':text:' > /etc/rsyslog.d/dz.conf", [
             'text' => $template,
         ]);
 
