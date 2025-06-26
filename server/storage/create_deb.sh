@@ -8,25 +8,25 @@
 # 5.Build Number
 # 6.Commit Message
 
-#Sandbox
-wget "https://github.com/limanmys/php-sandbox/archive/$1.zip" -q
-unzip -qq $1.zip 
-mkdir -p package/dz/sandbox/php
-mv php-sandbox-$1/* package/dz/sandbox/php/
-rm -rf $1.zip php-sandbox-$1
+
+# PHP SANDBOX
+COPY server/php-sandbox-master.zip /tmp/sandbox.zip
+RUN unzip -qq /tmp/sandbox.zip -d /tmp/ && \
+    mkdir -p package/dz/sandbox/php && \
+    mv /tmp/php-sandbox-master/* package/dz/sandbox/php/ && \
+    rm -rf /tmp/sandbox.zip /tmp/php-sandbox-master
 
 #UI
 COPY server/ui-master-1.zip /tmp/
 RUN unzip /tmp/ui-master-1.zip -d package/dz/ui && mv package/dz/ui /dz/
 
-#Render Engine
-curl -s https://api.github.com/repos/limanmys/fiber-render-engine/releases/latest \
-| grep "browser_download_url.*zip" \
-| cut -d : -f 2,3 \
-| tr -d \" \
-| wget -qi -
-unzip dz_render*.zip
-mv dz_render package/dz/server/storage/dz_render
+
+# RENDER ENGINE
+COPY server/dz_render.zip /tmp/
+RUN unzip -qq /tmp/dz_render.zip -d /tmp/ && \
+    mkdir -p package/dz/server/storage && \
+    mv /tmp/dz_render package/dz/server/storage/dz_render && \
+    rm -f /tmp/dz_render.zip
 
 #Setup variables and version codes.
 VERSION=$(cat package/dz/server/storage/VERSION)

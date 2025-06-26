@@ -47,13 +47,13 @@ class Authenticator
                 'last_login_at' => Carbon::now()->toDateTimeString(),
                 'last_login_ip' => $request->ip(),
                 'permissions' => [
-                    'server_details' => Permission::can($id, 'liman', 'id', 'server_details'),
-                    'server_services' => Permission::can($id, 'liman', 'id', 'server_services'),
-                    'add_server' => Permission::can($id, 'liman', 'id', 'add_server'),
-                    'update_server' => Permission::can($id, 'liman', 'id', 'update_server'),
-                    'view_logs' => Permission::can($id, 'liman', 'id', 'view_logs'),
+                    'server_details' => Permission::can($id, 'dz', 'id', 'server_details'),
+                    'server_services' => Permission::can($id, 'dz', 'id', 'server_services'),
+                    'add_server' => Permission::can($id, 'dz', 'id', 'add_server'),
+                    'update_server' => Permission::can($id, 'dz', 'id', 'update_server'),
+                    'view_logs' => Permission::can($id, 'dz', 'id', 'view_logs'),
                     'view' => (function () {
-                        $defaultPermissions = config('liman.default_views');
+                        $defaultPermissions = config('dz.default_views');
 
                         if (auth('api')->user()->isAdmin()) {
                             $defaultPermissions["dashboard"][] = "auth_logs";

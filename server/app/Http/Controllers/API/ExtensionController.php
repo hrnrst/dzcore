@@ -184,7 +184,7 @@ class ExtensionController extends Controller
                 }
             } catch (\Exception $e) {
                 return response()->json([
-                    'message' => __('Liman render service is not working or crashed. ').! env('APP_DEBUG', false) ?: $e->getMessage(),
+                    'message' => __('Dz render service is not working or crashed. ').! env('APP_DEBUG', false) ?: $e->getMessage(),
                 ], Response::HTTP_GATEWAY_TIMEOUT);
             }
         }

@@ -158,9 +158,9 @@ if (! function_exists('receiveSystemSettings')) {
         ])->first();
 
         if ($sshPrivate) {
-            `mkdir -p /home/liman/.ssh`;
-            file_put_contents('/home/liman/.ssh/liman_priv', $sshPrivate->data);
-            chmod('/home/liman/.ssh/liman_priv', 0600);
+            `mkdir -p /home/dz/.ssh`;
+            file_put_contents('/home/dz/.ssh/dz_priv', $sshPrivate->data);
+            chmod('/home/dz/.ssh/dz_priv', 0600);
         }
     }
 }
@@ -640,7 +640,7 @@ if (! function_exists('getExtensionFunctions')) {
      */
     function getExtensionFunctions(string $extension_name)
     {
-        $file = '/liman/extensions/' .
+        $file = '/dz/extensions/' .
             strtolower($extension_name) .
             DIRECTORY_SEPARATOR .
             'db.json';
@@ -674,7 +674,7 @@ if (! function_exists('extensionTranslate')) {
     {
         $lang = session('locale', 'tr');
         $file =
-            '/liman/extensions/' .
+            '/dz/extensions/' .
             strtolower($extension_name) .
             '/lang/' .
             $lang .
@@ -724,7 +724,7 @@ if (! function_exists('setEnv')) {
         } catch (\Exception) {
             return false;
         }
-        shell_exec('php /liman/server/artisan config:clear');
+        shell_exec('php /dz/server/artisan config:clear');
 
         return true;
     }
