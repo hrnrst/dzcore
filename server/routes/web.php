@@ -17,7 +17,7 @@ Route::any('/upload/{any?}', function () {
     $extension_id = request()->headers->get('extension-id');
     $extension = \App\Models\Extension::find($extension_id);
     if ($extension) {
-        $path = '/liman/extensions/'.strtolower((string) $extension->name);
+        $path = '/dz/extensions/'.strtolower((string) $extension->name);
     } else {
         $path = storage_path();
     }

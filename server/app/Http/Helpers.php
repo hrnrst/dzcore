@@ -561,7 +561,7 @@ if (! function_exists('sudo')) {
             return 'sudo ';
         }
 
-        return 'sudo -p "liman-pass-sudo" ';
+        return 'sudo -p "dz-pass-sudo" ';
     }
 }
 

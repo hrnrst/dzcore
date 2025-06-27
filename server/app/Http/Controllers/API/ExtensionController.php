@@ -288,7 +288,7 @@ class ExtensionController extends Controller
             $function = request('target_function');
             $extensionJson = json_decode(
                 file_get_contents(
-                    '/liman/extensions/'.
+                    '/dz/extensions/'.
                     strtolower((string) $extension->name).
                     DIRECTORY_SEPARATOR.
                     'db.json'
@@ -332,7 +332,7 @@ class ExtensionController extends Controller
     public function publicFolder()
     {
         $basePath =
-            '/liman/extensions/'.strtolower((string) extension()->name).'/public/';
+            '/dz/extensions/'.strtolower((string) extension()->name).'/public/';
 
         $targetPath = $basePath.explode('public/', (string) url()->current(), 2)[1];
 

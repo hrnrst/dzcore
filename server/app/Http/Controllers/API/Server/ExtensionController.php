@@ -155,7 +155,7 @@ class ExtensionController extends Controller
     {
         $extension = json_decode(
             file_get_contents(
-                '/liman/extensions/'.
+                '/dz/extensions/'.
                 strtolower((string) extension()->name).
                 DIRECTORY_SEPARATOR.
                 'db.json'

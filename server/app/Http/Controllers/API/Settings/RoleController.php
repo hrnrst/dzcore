@@ -442,7 +442,7 @@ class RoleController extends Controller
         $ext = Extension::find($request->extension_id);
         $extension = json_decode(
             file_get_contents(
-                '/liman/extensions/'.
+                '/dz/extensions/'.
                 strtolower((string) $ext->name).
                 DIRECTORY_SEPARATOR.
                 'db.json'
@@ -454,7 +454,7 @@ class RoleController extends Controller
             : [];
         $lang = session('locale') ?? 'tr';
         $file =
-            '/liman/extensions/'.
+            '/dz/extensions/'.
             strtolower((string) $ext->name).
             '/lang/'.
             $lang.

@@ -69,8 +69,8 @@ RUN chown liman:liman /liman_files/keys/vnc /liman_files/keys/vnc/config
 RUN chmod 700 /liman_files/keys/vnc/config
 
 # SETTINGS
-RUN sed -i "s/www-data/liman/g" /etc/php/8.1/fpm/pool.d/www.conf
-RUN sed -i "s/www-data/liman/g" /etc/nginx/nginx.conf
+RUN sed -i "s/www-data/dz/g" /etc/php/8.1/fpm/pool.d/www.conf
+RUN sed -i "s/www-data/dz/g" /etc/nginx/nginx.conf
 COPY storage/build_tools/docker/config/nginx_default /etc/nginx/sites-available/default 
 COPY storage/build_tools/docker/config/nginx.conf /etc/nginx/sites-available/liman.conf
 RUN ln -s /etc/nginx/sites-available/liman.conf /etc/nginx/sites-enabled/liman.conf

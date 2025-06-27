@@ -23,7 +23,7 @@ class Helper
      */
     public function __construct()
     {
-        $this->authKey = file_get_contents('/liman/keys/service.key');
+        $this->authKey = file_get_contents('/dz/keys/service.key');
         $this->client = new Client([
             'base_uri' => 'http://127.0.0.1:3008',
         ]);

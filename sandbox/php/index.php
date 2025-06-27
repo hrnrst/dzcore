@@ -388,7 +388,7 @@ function sudo()
         return "sudo ";
     }
 
-    return 'sudo -p "liman-pass-sudo" ';
+    return 'sudo -p "dz-pass-sudo" ';
 }
 
 

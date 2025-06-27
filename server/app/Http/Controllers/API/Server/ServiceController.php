@@ -150,7 +150,7 @@ class ServiceController extends Controller
 
 
             foreach ($services as $service) {
-                $cmd = "$pythonPath /liman/scripts/win_service_manage.py '$ip' '$username' '$password' start '$service'";
+                $cmd = "$pythonPath /dz/scripts/win_service_manage.py '$ip' '$username' '$password' start '$service'";
                 shell_exec($cmd); // veya exec, process() vb.
             }
         }
@@ -192,7 +192,7 @@ class ServiceController extends Controller
             : "python3"; // local ya da varsayılan sistem python'ı
 
             foreach ($services as $service) {
-                $cmd = "$pythonPath /liman/scripts/win_service_manage.py '$ip' '$username' '$password' stop '$service'";
+                $cmd = "$pythonPath /dz/scripts/win_service_manage.py '$ip' '$username' '$password' stop '$service'";
                 $output = shell_exec($cmd);
                 $data = json_decode($output, true);
 
@@ -242,7 +242,7 @@ class ServiceController extends Controller
             : "python3"; // local ya da varsayılan sistem python'ı
 
             foreach ($services as $service) {
-                $cmd = "$pythonPath /liman/scripts/win_service_manage.py '$ip' '$username' '$password' restart '$service'";
+                $cmd = "$pythonPath /dz/scripts/win_service_manage.py '$ip' '$username' '$password' restart '$service'";
                 $output = shell_exec($cmd);
                 $data = json_decode($output, true);
 
@@ -292,7 +292,7 @@ class ServiceController extends Controller
             : "python3"; // local ya da varsayılan sistem python'ı
 
             foreach ($services as $service) {
-                $cmd = "$pythonPath /liman/scripts/win_service_manage.py '$ip' '$username' '$password' enable '$service'";
+                $cmd = "$pythonPath /dz/scripts/win_service_manage.py '$ip' '$username' '$password' enable '$service'";
                 $output = shell_exec($cmd);
                 $data = json_decode($output, true);
 
@@ -341,7 +341,7 @@ class ServiceController extends Controller
             : "python3"; // local ya da varsayılan sistem python'ı
 
             foreach ($services as $service) {
-                $cmd = "$pythonPath /liman/scripts/win_service_manage.py '$ip' '$username' '$password' disable '$service'";
+                $cmd = "$pythonPath /dz/scripts/win_service_manage.py '$ip' '$username' '$password' disable '$service'";
                 $output = shell_exec($cmd);
                 $data = json_decode($output, true);
 
@@ -387,7 +387,7 @@ class ServiceController extends Controller
             ? "/opt/limanpyenv/bin/python"
             : "python3"; // local ya da varsayılan sistem python'ı
 
-        $cmd = "$pythonPath /liman/scripts/win_service_manage.py '$ip' '$username' '$password' status '$service'";
+        $cmd = "$pythonPath /dz/scripts/win_service_manage.py '$ip' '$username' '$password' status '$service'";
         $output = shell_exec($cmd);
         $data = json_decode($output, true);
 

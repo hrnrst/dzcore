@@ -35,7 +35,7 @@ class InternalController extends Controller
     private function checkPermissions()
     {
         $systemToken = request('system_token');
-        $serviceKey = file_get_contents('/liman/keys/service.key');
+        $serviceKey = file_get_contents('/dz/keys/service.key');
         $remoteAddr = $_SERVER['REMOTE_ADDR'];
         $serverAddr = $_SERVER['SERVER_ADDR'];
 
@@ -133,7 +133,7 @@ class InternalController extends Controller
      */
     public function addProxyConfig()
     {
-        $vncDir = '/liman/keys/vnc';
+        $vncDir = '/dz/keys/vnc';
 
         if (! is_dir($vncDir)) {
             mkdir($vncDir, 0700, true);

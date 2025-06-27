@@ -38,7 +38,7 @@ class MainController extends Controller
                 "download_path" => route("ha_download_ext", [
                     "extension_name" => $extension->name
                 ]),
-                "key_content" => Command::runSystem('cat ' . "/liman/keys/" . $extension->id)
+                "key_content" => Command::runSystem('cat ' . "/dz/keys/" . $extension->id)
             ];
         }
 
@@ -53,7 +53,7 @@ class MainController extends Controller
     public function downloadExtension()
     {
         // Generate Extension Folder Path
-        $path = '/liman/extensions/' . strtolower((string) request('extension_name'));
+        $path = '/dz/extensions/' . strtolower((string) request('extension_name'));
         $tempPath = '/tmp/' . Str::random() . '.zip';
 
         // Zip the current extension

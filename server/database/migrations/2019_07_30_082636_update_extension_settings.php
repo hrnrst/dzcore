@@ -17,7 +17,7 @@ class UpdateExtensionSettings extends Migration
         // Create Encryption Keys for existing Extensions.
         $extensions = Extension::all();
         foreach ($extensions as $extension) {
-            $passPath = '/liman/keys/'.DIRECTORY_SEPARATOR.$extension->id;
+            $passPath = '/dz/keys/'.DIRECTORY_SEPARATOR.$extension->id;
             file_put_contents($passPath, Str::random(32));
         }
 

@@ -26,8 +26,8 @@ class HealthController extends Controller
         $admin_account = User::where('email', 'administrator@dz.dev')->first() ? false : true;
         $high_availability_service = (bool) env('HIGH_AVAILABILITY_MODE', false);
         $dns_check = Command::runSystem("cat /etc/resolv.conf | grep nameserver >/dev/null && echo 1 || echo 0") === "1" ? true : false;
-        $ssl_check = Command::runSystem("openssl x509 -checkend 86400 -noout -in /liman/certs/liman.crt") == "Certificate will expire" ? false : true;
-        $self_signed = Command::runSystem("openssl x509 -noout -in /liman/certs/liman.crt -issuer | grep 'CN = liman' | grep 'O = Havelsan' >/dev/null && echo 1 || echo 0") === "1" ? false : true;
+        $ssl_check = Command::runSystem("openssl x509 -checkend 86400 -noout -in /dz/certs/dz.crt") == "Certificate will expire" ? false : true;
+        $self_signed = Command::runSystem("openssl x509 -noout -in /dz/certs/dz.crt -issuer | grep 'CN = dz' | grep 'O = Havelsan' >/dev/null && echo 1 || echo 0") === "1" ? false : true;
         
         return response()->json([
             "admin_account" => $admin_account,

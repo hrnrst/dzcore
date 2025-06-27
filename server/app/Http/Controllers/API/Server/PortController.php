@@ -66,7 +66,7 @@ class PortController extends Controller
             ? "/opt/limanpyenv/bin/python"
             : "python3"; // local ya da varsayılan sistem python'ı
 
-            $cmd = "$pythonPath /liman/scripts/win_service_manage.py '$ip' '$username' '$password' ports";
+            $cmd = "$pythonPath /dz/scripts/win_service_manage.py '$ip' '$username' '$password' ports";
             $output = shell_exec($cmd);
             $data = json_decode($output, true);
 

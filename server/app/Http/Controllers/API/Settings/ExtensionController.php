@@ -146,7 +146,7 @@ class ExtensionController extends Controller
         $extension_id = extension()->id;
         try {
             Command::runLiman(
-                "rm -rf '/liman/extensions/{:extension}'",
+                "rm -rf '/dz/extensions/{:extension}'",
                 [
                     'extension' => strtolower((string) extension()->name),
                 ]
@@ -252,7 +252,7 @@ class ExtensionController extends Controller
     public function download()
     {
         // Generate Extension Folder Path
-        $path = '/liman/extensions/'.strtolower((string) extension()->name);
+        $path = '/dz/extensions/'.strtolower((string) extension()->name);
         $tempPath = '/tmp/'.Str::random().'.zip';
 
         // Zip the current extension
@@ -374,7 +374,7 @@ class ExtensionController extends Controller
 
         $system->userAdd($new->id);
 
-        $passPath = '/liman/keys'.DIRECTORY_SEPARATOR.$new->id;
+        $passPath = '/dz/keys'.DIRECTORY_SEPARATOR.$new->id;
 
         Command::runSystem('chmod 760 @{:path}', [
             'path' => $passPath,
@@ -382,7 +382,7 @@ class ExtensionController extends Controller
 
         file_put_contents($passPath, Str::random(32));
 
-        $extension_folder = '/liman/extensions/'.strtolower((string) $json['name']);
+        $extension_folder = '/dz/extensions/'.strtolower((string) $json['name']);
 
         Command::runLiman('mkdir -p @{:extension_folder}', [
             'extension_folder' => $extension_folder,
