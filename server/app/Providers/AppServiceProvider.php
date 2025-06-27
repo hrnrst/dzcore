@@ -44,7 +44,7 @@ class AppServiceProvider extends ServiceProvider
             'roles' => 'App\Models\Role',
         ]);
 
-        if (! request()->headers->has('liman-token')) {
+        if (! request()->headers->has('dz-token')) {
             $router->pushMiddlewareToGroup(
                 'web',
                 \App\Http\Middleware\VerifyCsrfToken::class

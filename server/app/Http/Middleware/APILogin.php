@@ -21,9 +21,9 @@ class APILogin
      */
     public function handle($request, Closure $next)
     {
-        if (request()->headers->has('liman-token')) {
+        if (request()->headers->has('dz-token')) {
             $obj = AccessToken::where([
-                'token' => request()->headers->get('liman-token'),
+                'token' => request()->headers->get('dz-token'),
             ])->first();
             if (! $obj) {
                 return response()->json([
