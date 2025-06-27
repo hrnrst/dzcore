@@ -53,12 +53,6 @@ RUN unzip -qq /tmp/sandbox.zip -d /tmp/ && \
     mv /tmp/php-sandbox-master/* /dz/sandbox/php/ && \
     rm -rf /tmp/sandbox.zip /tmp/php-sandbox-master
 
-# RENDER ENGINE
-COPY server/dz_render.zip /tmp/
-RUN unzip -qq /tmp/dz_render.zip -d /tmp/ && \
-    mkdir -p /dz/server/storage && \
-    mv /tmp/dz_render /dz/server/storage/dz_render && \
-    rm -f /tmp/dz_render.zip
 
 # COMPOSER
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php

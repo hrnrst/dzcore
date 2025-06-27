@@ -21,12 +21,6 @@ COPY server/ui-master-1.zip /tmp/
 RUN unzip /tmp/ui-master-1.zip -d package/dz/ui && mv package/dz/ui /dz/
 
 
-# RENDER ENGINE
-COPY server/dz_render.zip /tmp/
-RUN unzip -qq /tmp/dz_render.zip -d /tmp/ && \
-    mkdir -p package/dz/server/storage && \
-    mv /tmp/dz_render package/dz/server/storage/dz_render && \
-    rm -f /tmp/dz_render.zip
 
 #Setup variables and version codes.
 VERSION=$(cat package/dz/server/storage/VERSION)
