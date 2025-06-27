@@ -48,8 +48,8 @@ else
 fi
 
 # JWT Secret creation
-JWT_EXISTS=$(grep JWT_SECRET /dz/server/.env && echo "1" || echo "0")
-if [ $JWT_EXISTS == "0" ]; then
+JWT_EXISTS=$(grep JWT_SECRET /dz/server/.env >/dev/null && echo "1" || echo "0")
+if [ "$JWT_EXISTS" = "0" ]; then
     php /dz/server/artisan jwt:secret
 else
     echo "JWT secret already set."
