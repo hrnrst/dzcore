@@ -1246,7 +1246,7 @@
                                                 children: t("users.create.username")
                                             }), (0, r.jsx)(F.I, {
                                                 id: "username",
-                                                placeholder: "limanuser",
+                                                placeholder: "dzuser",
                                                 ...s,
                                                 disabled: (null == d ? void 0 : d.auth_type) === "ldap"
                                             }), (0, r.jsx)(z.zG, {

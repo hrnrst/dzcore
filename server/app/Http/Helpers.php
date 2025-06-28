@@ -239,7 +239,7 @@ if (! function_exists('getLimanPermissions')) {
         ];
         $permissions = Permission::where([
             'morph_id' => $user_id ? $user_id : user()->id,
-            'type' => 'liman',
+            'type' => 'dz',
             'key' => 'id',
         ])->get();
         $permissions = $permissions->map(function ($permission) use (&$map) {
@@ -396,7 +396,7 @@ if (! function_exists('addCertificate')) {
     {
         rootSystem()->addCertificate(
             '/tmp/' . $path,
-            'liman-' . $hostname . '_' . $port
+            'dz-' . $hostname . '_' . $port
         );
 
         // Create Certificate Object.

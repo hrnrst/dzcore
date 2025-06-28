@@ -46,7 +46,7 @@ class RoleController extends Controller
             'users' => $role->users->count(),
             'servers' => $role->permissions->where('type', 'server')->count(),
             'extensions' => $role->permissions->where('type', 'extension')->count(),
-            'liman' => $role->permissions->where('type', 'liman')->count(),
+            'dz' => $role->permissions->where('type', 'dz')->count(),
             'functions' => $role->permissions->where('type', 'function')->count(),
             'variables' => $role->permissions->where('type', 'variable')->count(),
             'views' => $role->permissions->where('type', 'view')->count(),
@@ -364,13 +364,13 @@ class RoleController extends Controller
     {
         Permission::where([
             'morph_id' => $request->role_id,
-            'type' => 'liman',
+            'type' => 'dz',
         ])->delete();
 
         foreach ($request->limanPermissions as $permission) {
             Permission::grant(
                 $request->role_id,
-                'liman',
+                'dz',
                 'id',
                 $permission,
                 null,
@@ -390,7 +390,7 @@ class RoleController extends Controller
         );
 
         return response()->json([
-            'message' => 'Liman yetkileri başarıyla güncellendi.'
+            'message' => 'Dz yetkileri başarıyla güncellendi.'
         ]);
     }
 

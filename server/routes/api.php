@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function (Request $request) {
     return response()->json([
-        'message' => 'Welcome to the Liman MYS API!',
+        'message' => 'Welcome to the Dz MYS API!',
         'version' => getVersion(),
         'ip' => $request->ip(),
     ]);
