@@ -78,6 +78,12 @@ RUN touch /dz/keys/vnc/config
 RUN chown dz:dz /dz/keys/vnc /dz/keys/vnc/config
 RUN chmod 700 /dz/keys/vnc/config
 
+
+# storage/framework/views
+RUN mkdir -p /dz/server/storage/framework/views
+RUN chmod -R 775 /dz/server/storage/framework/views
+RUN chown -R www-data:www-data /dz/server/storage/framework/views
+
 # SETTINGS
 RUN sed -i "s/www-data/dz/g" /etc/php/8.2/fpm/pool.d/www.conf
 RUN sed -i "s/www-data/dz/g" /etc/nginx/nginx.conf
