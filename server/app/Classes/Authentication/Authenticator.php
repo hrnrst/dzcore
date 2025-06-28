@@ -60,6 +60,10 @@ class Authenticator
                             $defaultPermissions["dashboard"][] = "extensions";
                             $defaultPermissions["dashboard"][] = "most_used_extensions";
                             $defaultPermissions["dashboard"][] = "most_used_servers";
+                            $defaultPermissions["dashboard"][] = "servers";
+                            $defaultPermissions["dashboard"][] = "users";
+                            $defaultPermissions["dashboard"][] = "version";
+                            
                             return $defaultPermissions;
                         }
 
