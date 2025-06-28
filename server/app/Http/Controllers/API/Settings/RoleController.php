@@ -655,7 +655,7 @@ class RoleController extends Controller
         ])->get();
 
         $viewSettings = [
-            ...config('liman.default_views'),
+            ...config('dz.default_views'),
         ];
 
         $permissions->map(function ($item) use (&$viewSettings) {

@@ -58,6 +58,8 @@ class Authenticator
                         if (auth('api')->user()->isAdmin()) {
                             $defaultPermissions["dashboard"][] = "auth_logs";
                             $defaultPermissions["dashboard"][] = "extensions";
+                            $defaultPermissions["dashboard"][] = "most_used_extensions";
+                            $defaultPermissions["dashboard"][] = "most_used_servers";
                             return $defaultPermissions;
                         }
 
