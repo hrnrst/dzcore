@@ -113,20 +113,25 @@ class Distro
     $logFile = '/tmp/runsudo_debug.txt';
     $timestamp = date('Y-m-d H:i:s');
     
-    // Başlangıç log'u
     file_put_contents($logFile, "\n=== runSudo START [$timestamp] ===\n", FILE_APPEND);
     file_put_contents($logFile, "Input command: " . var_export($command, true) . "\n", FILE_APPEND);
     file_put_contents($logFile, "Input attributes: " . var_export($attributes, true) . "\n", FILE_APPEND);
     file_put_contents($logFile, "Engine class: " . (isset(self::$engine) ? self::$engine : 'NOT SET') . "\n", FILE_APPEND);
     
     try {
-        // Command kontrolü
         if ($command === null || $command === '') {
             file_put_contents($logFile, "ERROR: Command is null or empty\n", FILE_APPEND);
             return false;
         }
         
-        // Engine kontrolü
+        // Yer tutucu değişimi burada
+        if (!empty($attributes) && is_array($attributes)) {
+            foreach ($attributes as $key => $value) {
+                $command = str_replace('{:' . $key . '}', $value, $command);
+            }
+            file_put_contents($logFile, "Command after interpolation: " . var_export($command, true) . "\n", FILE_APPEND);
+        }
+        
         if (!isset(self::$engine)) {
             file_put_contents($logFile, "ERROR: Engine not set\n", FILE_APPEND);
             return false;
@@ -137,22 +142,17 @@ class Distro
             return false;
         }
         
-        // Sudo prefix alma
-        file_put_contents($logFile, "Getting sudo prefix from engine...\n", FILE_APPEND);
         $sudoPrefix = self::$engine::sudo();
         file_put_contents($logFile, "Sudo prefix: " . var_export($sudoPrefix, true) . "\n", FILE_APPEND);
         
-        // Full command oluşturma
         $fullCommand = $sudoPrefix . $command;
         file_put_contents($logFile, "Full command: " . var_export($fullCommand, true) . "\n", FILE_APPEND);
         
-        // Komutu çalıştırma
         file_put_contents($logFile, "Executing command via self::run()...\n", FILE_APPEND);
         $output = self::run($fullCommand, $attributes);
         file_put_contents($logFile, "Command output type: " . gettype($output) . "\n", FILE_APPEND);
         file_put_contents($logFile, "Command output: " . var_export($output, true) . "\n", FILE_APPEND);
         
-        // Sonuç kontrolü
         if (is_array($output)) {
             file_put_contents($logFile, "WARNING: Output is array, converting to string\n", FILE_APPEND);
             $output = implode("\n", $output);
@@ -175,6 +175,7 @@ class Distro
         return false;
     }
 }
+
 
 	/**
 	 * Set default option.
