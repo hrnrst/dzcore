@@ -27,7 +27,7 @@ Route::any('/upload/{any?}', function () {
         if ($extension) {
             rootSystem()->fixExtensionPermissions($extension_id, $extension->name);
         } else {
-            rootSystem()->fixExtensionPermissions('liman', 'liman');
+            rootSystem()->fixExtensionPermissions('dz', 'dz');
         }
     }
     $server->setUploadDir($path.'/uploads');
