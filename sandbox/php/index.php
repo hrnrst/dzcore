@@ -30,12 +30,12 @@ set_error_handler('customErrorHandler');
 
 $decrypted = AES256::decrypt($argv[2], shell_exec('cat ' . $argv[1]));
 
-$limanData = json_decode((string) $decrypted, true, 512);
+$dzData = json_decode((string) $decrypted, true, 512);
 
-foreach ($limanData as $key => $item) {
+foreach ($dzData as $key => $item) {
     if (is_string($item)) {
         @$json = json_decode($item, true);
-        $limanData[$key] = (json_last_error() == JSON_ERROR_NONE) ? $json : $item;
+        $dzData[$key] = (json_last_error() == JSON_ERROR_NONE) ? $json : $item;
     }
 }
 
@@ -53,9 +53,9 @@ function setHandler()
 
 function extensionDb($target, $set = null)
 {
-    global $limanData;
+    global $dzData;
     if ($set) {
-        $limanData["settings"][$target] = $set;
+        $dzData["settings"][$target] = $set;
 
         return renderEngineRequest('', 'setExtensionDb', [
             "target" => $target,
@@ -63,11 +63,11 @@ function extensionDb($target, $set = null)
         ]);
     }
 
-    if (isset($limanData["settings"][$target])) {
-        if (stringIsJson($limanData["settings"][$target])) {
-            return json_decode($limanData["settings"][$target], true);
+    if (isset($dzData["settings"][$target])) {
+        if (stringIsJson($dzData["settings"][$target])) {
+            return json_decode($dzData["settings"][$target], true);
         }
-        return $limanData["settings"][$target];
+        return $dzData["settings"][$target];
     }
 
     return "";
@@ -80,21 +80,21 @@ function extension()
 
 function server()
 {
-    global $limanData;
-    return (object) $limanData["server"];
+    global $dzData;
+    return (object) $dzData["server"];
 }
 
 function user()
 {
-    global $limanData;
-    return (object) $limanData["user"];
+    global $dzData;
+    return (object) $dzData["user"];
 }
 
 $cachedTranslations = [];
 
 function __($str, $attributes = [])
 {
-    global $limanData, $cachedTranslations;
+    global $dzData, $cachedTranslations;
     if ($cachedTranslations === null) {
         return $str;
     }
@@ -102,14 +102,14 @@ function __($str, $attributes = [])
     if ($cachedTranslations == []) {
         $translationFiles = [
             [
-                "folder" => dirname(dirname((string) $limanData["functionsPath"])) . "/lang",
+                "folder" => dirname(dirname((string) $dzData["functionsPath"])) . "/lang",
             ],
             [
                 "folder" => __DIR__ . "/lang",
             ]
         ];
         foreach ($translationFiles as $translationFile) {
-            $file = $translationFile['folder'] . "/" . $limanData["locale"] . ".json";
+            $file = $translationFile['folder'] . "/" . $dzData["locale"] . ".json";
             if (is_dir($translationFile['folder']) && is_file($file)) {
                 $cachedTranslations = array_merge(
                     $cachedTranslations,
@@ -150,8 +150,8 @@ function sortReplacements(array $replace)
 
 function request($target = null)
 {
-    global $limanData;
-    $tempRequest = $limanData["requestData"];
+    global $dzData;
+    $tempRequest = $dzData["requestData"];
     if ($target) {
         if (isset($tempRequest[$target])) {
             return html_entity_decode((string) $tempRequest[$target]);
@@ -170,8 +170,8 @@ function API($target)
 
 function getToken()
 {
-    global $limanData;
-    return $limanData["token"];
+    global $dzData;
+    return $dzData["token"];
 }
 
 function respond($message, $code = "200")
@@ -184,9 +184,9 @@ function respond($message, $code = "200")
 
 function abort($message, $code = "200")
 {
-    global $limanData;
+    global $dzData;
     ob_clean();
-    if (!(bool) $limanData["ajax"]) {
+    if (!(bool) $dzData["ajax"]) {
         echo view('alert', [
             "type" => (int) $code == 200 ? "success" : "danger",
             "title" => (int) $code == 200 ? __("Başarılı") : __("Hata"),
@@ -201,7 +201,7 @@ function abort($message, $code = "200")
 
 function navigate($name, $params = [])
 {
-    global $limanData;
+    global $dzData;
     $args = '';
     if ($params != []) {
         $args = '?&';
@@ -210,24 +210,24 @@ function navigate($name, $params = [])
         }
     }
 
-    return str_replace("//", "/", (string) $limanData["navigationRoute"] . '/' . $name . $args);
+    return str_replace("//", "/", (string) $dzData["navigationRoute"] . '/' . $name . $args);
 }
 
 function view($name, $params = [])
 {
-    global $limanData;
-    $path = "/tmp/" . $limanData["extension"]["id"];
+    global $dzData;
+    $path = "/tmp/" . $dzData["extension"]["id"];
     if (!is_dir($path)) {
         mkdir($path);
     }
 
-    $blade = new Blade([dirname((string) $limanData["functionsPath"]), __DIR__ . "/views/"], $path);
+    $blade = new Blade([dirname((string) $dzData["functionsPath"]), __DIR__ . "/views/"], $path);
     return $blade->render($name, $params);
 }
 
 function limanInternalRequest($url, $data, $server_id = null, $extension_id = null)
 {
-    global $limanData;
+    global $dzData;
     $client = new Client([
         'verify' => false
     ]);
@@ -240,7 +240,7 @@ function limanInternalRequest($url, $data, $server_id = null, $extension_id = nu
     }
 
     $server_id = ($server_id) ? $server_id : server()->id;
-    $extension_id = ($extension_id) ? $extension_id : $limanData["extension"]["id"];
+    $extension_id = ($extension_id) ? $extension_id : $dzData["extension"]["id"];
     try {
         $response = $client->request('POST', sprintf('https://127.0.0.1/lmn/private/%s', $url), [
             'headers' => [
@@ -257,7 +257,7 @@ function limanInternalRequest($url, $data, $server_id = null, $extension_id = nu
                 ],
                 [
                     "name" => "token",
-                    "contents" => $limanData["token"]
+                    "contents" => $dzData["token"]
                 ]
             ]),
         ]);
@@ -290,11 +290,11 @@ function dispatchJob($function_name, $parameters = [])
 
 function renderEngineRequest($function, $url, $parameters = [], $server_id = null, $extension_id = null, $type = 'POST')
 {
-    global $limanData;
+    global $dzData;
     $client = new Client(['verify' => false]);
     $parameters["server_id"] = $server_id ? $server_id : server()->id;
-    $parameters["extension_id"] = $extension_id ? $extension_id : $limanData["extension"]["id"];
-    $parameters["token"] = $limanData["token"];
+    $parameters["extension_id"] = $extension_id ? $extension_id : $dzData["extension"]["id"];
+    $parameters["token"] = $dzData["token"];
     $parameters["lmntargetFunction"] = $function;
 
     try {
@@ -320,14 +320,14 @@ function getJobList($function_name)
 
 function publicPath($path)
 {
-    global $limanData;
-    return $limanData["publicPath"] . $path;
+    global $dzData;
+    return $dzData["publicPath"] . $path;
 }
 
 function getLicense()
 {
-    global $limanData;
-    return $limanData["license"];
+    global $dzData;
+    return $dzData["license"];
 }
 
 function runCommand($command)
@@ -370,21 +370,21 @@ function executeOutsideCommand($connectionType, $username, $password, $remote_ho
 
 function getServerKeyType()
 {
-    global $limanData;
-    return $limanData["key_type"];
+    global $dzData;
+    return $dzData["key_type"];
 }
 
 function serverHasKey()
 {
-    global $limanData;
-    return $limanData["key_type"] != "";
+    global $dzData;
+    return $dzData["key_type"] != "";
 }
 
 function sudo()
 {
-    global $limanData;
+    global $dzData;
 
-    if ($limanData["key_type"] == "ssh_certificate") {
+    if ($dzData["key_type"] == "ssh_certificate") {
         return "sudo ";
     }
 
@@ -428,16 +428,16 @@ function stopTunnel($remote_host, $remote_port)
 
 function getPath($filename = null)
 {
-    global $limanData;
-    return dirname(dirname((string) $limanData["functionsPath"])) . "/" . $filename;
+    global $dzData;
+    return dirname(dirname((string) $dzData["functionsPath"])) . "/" . $filename;
 }
 
 function getVariable($key)
 {
-    global $limanData;
+    global $dzData;
 
-    if (isset($limanData["variables"]) && isset($limanData["variables"][$key])) {
-        return $limanData["variables"][$key];
+    if (isset($dzData["variables"]) && isset($dzData["variables"][$key])) {
+        return $dzData["variables"][$key];
     } else {
         return "";
     }
@@ -445,12 +445,12 @@ function getVariable($key)
 
 function can($name)
 {
-    global $limanData;
-    if ($limanData["user"]["status"] == "1") {
+    global $dzData;
+    if ($dzData["user"]["status"] == "1") {
         return true;
     }
 
-    return in_array($name, $limanData["permissions"]);
+    return in_array($name, $dzData["permissions"]);
 }
 
 function sendNotification($title, $message, $type = "notify")
@@ -475,17 +475,17 @@ function sendMail($to, $subject, $content, array $attachments = [], bool $templa
 
 function sendLog($title, $message, $data = [])
 {
-    global $limanData;
+    global $dzData;
     if ($message == null) {
         abort("Mesaj boş olamaz!", 504);
     }
 
     if ($title == "MAIL_TAG") {
-        $message = $limanData["extension"]["id"] . "-" . server()->id . "-" . $message;
+        $message = $dzData["extension"]["id"] . "-" . server()->id . "-" . $message;
     }
 
     return renderEngineRequest('', 'sendLog', [
-        "log_id" => $limanData["log_id"],
+        "log_id" => $dzData["log_id"],
         'message' => base64_encode((string) $message),
         'title' => base64_encode((string) $title),
         'data' => json_encode($data)
@@ -508,11 +508,11 @@ function checkTask()
 
 function download($path)
 {
-    global $limanData;
+    global $dzData;
     $object = [
         "server_id" => server()->id,
-        "extension_id" => $limanData["extension"]["id"],
-        "token" => $limanData["token"],
+        "extension_id" => $dzData["extension"]["id"],
+        "token" => $dzData["token"],
         "path" => $path
     ];
     return "/engine/download/?" . http_build_query($object);
@@ -527,8 +527,8 @@ function stringIsJson(string $string)
     return false;
 }
 
-if (is_file($limanData["functionsPath"])) {
-    include($limanData["functionsPath"]);
+if (is_file($dzData["functionsPath"])) {
+    include($dzData["functionsPath"]);
 }
 
 if (is_file(getPath('vendor/autoload.php'))) {
@@ -538,12 +538,12 @@ if (is_file(getPath('vendor/autoload.php'))) {
     }
 }
 
-if (function_exists($limanData["function"])) {
-    echo call_user_func($limanData["function"]);
+if (function_exists($dzData["function"])) {
+    echo call_user_func($dzData["function"]);
 } elseif (is_file(getPath("routes.php"))) {
     $routes = include getPath('routes.php');
-    if (isset($routes[$limanData["function"]])) {
-        $destination = explode('@', (string) $routes[$limanData["function"]]);
+    if (isset($routes[$dzData["function"]])) {
+        $destination = explode('@', (string) $routes[$dzData["function"]]);
         $class = 'App\\Controllers\\' . $destination[0];
         if (!class_exists($class)) {
             $class = $destination[0];
@@ -588,11 +588,11 @@ function createCronjob($payload, $day, $time, $target)
 
 function indexQueue($queueType)
 {
-    global $limanData;
+    global $dzData;
     $params = [
         'user_id' => user()->id,
         'server_id' => server()->id,
-        'extension_id' => $limanData['extension']['id'],
+        'extension_id' => $dzData['extension']['id'],
         'queue_type' => $queueType,
     ];
     $response = renderEngineRequest('', 'queue', $params, null, null, 'GET');
@@ -602,11 +602,11 @@ function indexQueue($queueType)
 
 function deleteQueue($id, $queueType)
 {
-    global $limanData;
+    global $dzData;
     $params = [
         'user_id' => user()->id,
         'server_id' => server()->id,
-        'extension_id' => $limanData['extension']['id'],
+        'extension_id' => $dzData['extension']['id'],
         'queue_type' => $queueType,
     ];
     
@@ -617,14 +617,14 @@ function deleteQueue($id, $queueType)
 
 function createQueue($type, $payload, $target)
 {
-    global $limanData;
+    global $dzData;
 
     $params = [
         'type' => $type,
         'payload' => $payload,
         'user_id' => user()->id,
         'server_id' => server()->id,
-        'extension_id' => $limanData['extension']['id'],
+        'extension_id' => $dzData['extension']['id'],
         'target' => $target,
     ];
 

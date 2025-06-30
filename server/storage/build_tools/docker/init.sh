@@ -90,7 +90,7 @@ sed -i "s/listen 443 ssl http2.*/listen ${NGINX_PORT} ssl http2;/g" /etc/nginx/s
 if [ -f "/dz/certs/dz.key" ]; then
     echo "/dz/certs/dz.key exists."
 else
-    openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=TR/ST=Ankara/L=Merkez/O=Havelsan/CN=dz" -keyout /dz/certs/dz.key -out /dz/certs/dz.crt
+    openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/C=TR/ST=Ankara/L=Merkez/O=Dz/CN=dz" -keyout /dz/certs/dz.key -out /dz/certs/dz.crt
 fi
 
 # Laravel initialization
