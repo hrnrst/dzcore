@@ -60,7 +60,7 @@ RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 RUN rm -rf composer-setup.php
 
 RUN composer install --no-dev --no-scripts -d /dz/server
-RUN composer install --no-dev -d /dz/sandbox/php
+#RUN composer install --no-dev -d /dz/sandbox/php
 
 # USERS
 RUN groupadd -g 2800 dz
