@@ -35,7 +35,10 @@ class Command
 	 */
 	public static function runSudo($command, $attributes = [])
 	{
-		return self::run(self::$engine::sudo() . $command, $attributes);
+		$fullCommand = self::run(self::$engine::sudo() . $command, $attributes);
+    	file_put_contents('/tmp/ansible_version_output.txt', "runSudo command: " . self::$engine::sudo() . $command . "\nOutput: " . $fullCommand . "\n\n", FILE_APPEND);
+    	
+		return $fullCommand;
 	}
 
 	/**

@@ -11,7 +11,7 @@
 
   @slot('footer')
     @component('mail::footer')
-      Bu email <a href="https://liman.havelsan.com.tr">Liman MYS</a> dış bildirim sisteminde <b>{{ isset(explode("->", $notification['title'])[1]) ? explode("->", $notification['title'])[1] : 'Liman' }}</b> tarafından oluşturulmuştur.
+      Bu email <a href="https://dz.com.tr">DZ MYS</a> dış bildirim sisteminde <b>{{ isset(explode("->", $notification['title'])[1]) ? explode("->", $notification['title'])[1] : 'Liman' }}</b> tarafından oluşturulmuştur.
     @endcomponent
   @endslot
 

@@ -73,7 +73,7 @@ class ExtensionController extends Controller
             )
         ) {
             $verify = Command::runSystem(
-                'runuser liman -c "$(which gpg) --verify --status-fd 1 @{:extension}" | grep GOODSIG || echo 0',
+                'runuser dz -c "$(which gpg) --verify --status-fd 1 @{:extension}" | grep GOODSIG || echo 0',
                 ['extension' => request()->file('extension')->path()]
             );
 	        if (! (bool) $verify) {
@@ -82,7 +82,7 @@ class ExtensionController extends Controller
                 ], Response::HTTP_UNPROCESSABLE_ENTITY);
             }
             $decrypt = Command::runSystem(
-                'runuser liman -c "gpg --status-fd 1 -d -o \'/tmp/{:originalName}\' @{:extension} | grep FAILURE > /dev/null && echo 0 || echo 1"',
+                'runuser dz -c "gpg --status-fd 1 -d -o \'/tmp/{:originalName}\' @{:extension} | grep FAILURE > /dev/null && echo 0 || echo 1"',
                 [
                     'originalName' => 'ext-'.basename((string) request()->file('extension')->path()),
                     'extension' => request()->file('extension')->path(),

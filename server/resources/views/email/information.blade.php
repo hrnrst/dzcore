@@ -11,7 +11,7 @@
 
   @slot('footer')
     @component('mail::footer')
-      &copy; Liman MYS
+      &copy; DZ MYS
     @endcomponent
   @endslot
 
