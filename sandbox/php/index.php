@@ -291,23 +291,18 @@ function dispatchJob($function_name, $parameters = [])
 function renderEngineRequest($function, $url, $parameters = [], $server_id = null, $extension_id = null, $type = 'POST')
 {
     global $dzData;
-    file_put_contents('/tmp/render_run.log', "[" . date('Y-m-d H:i:s') . "] Command: $dzData\n", FILE_APPEND);
     $client = new Client(['verify' => false]);
     $parameters["server_id"] = $server_id ? $server_id : server()->id;
     $parameters["extension_id"] = $extension_id ? $extension_id : $dzData["extension"]["id"];
     $parameters["token"] = $dzData["token"];
     $parameters["lmntargetFunction"] = $function;
-    file_put_contents('/tmp/render_run.log', "[" . date('Y-m-d H:i:s') . "] Command: $parameters\n", FILE_APPEND);
 
     try {
         $response = $client->request($type, sprintf('https://127.0.0.1:2806/%s', $url), [
             "form_params" => $parameters,
         ]);
-            file_put_contents('/tmp/render_run.log', "[" . date('Y-m-d H:i:s') . "] Try: $response\n", FILE_APPEND);
-
         return $response->getBody()->getContents();
     } catch (GuzzleException $guzzleException) {
-            file_put_contents('/tmp/render_run.log', "[" . date('Y-m-d H:i:s') . "] Catch: $guzzleException\n", FILE_APPEND);
         abort($guzzleException->getMessage(), 201);
     }
 }
