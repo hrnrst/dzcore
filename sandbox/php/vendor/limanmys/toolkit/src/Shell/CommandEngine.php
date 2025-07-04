@@ -10,18 +10,16 @@ class CommandEngine implements ICommandEngine
      * @return string
      */
    public static function run($command)
-{
-    // Komutu ve çalıştırılma zamanını logla
-    file_put_contents('/tmp/command_run.log', "[" . date('Y-m-d H:i:s') . "] Command: $command\n", FILE_APPEND);
+  {
+      // Komutu ve çalıştırılma zamanını logla
+      file_put_contents('/tmp/command_run.log', "[" . date('Y-m-d H:i:s') . "] Command: $command\n", FILE_APPEND);
 
-    // Komut çalıştırılıyor
-    $output = shell_exec($command);
+      // Komut çalıştırılıyor
+      return runCommand($command);
+      // Çıktıyı logla
+      file_put_contents('/tmp/command_run.log', "[" . date('Y-m-d H:i:s') . "] Output: " . var_export($output, true) . "\n\n", FILE_APPEND);
 
-    // Çıktıyı logla
-    file_put_contents('/tmp/command_run.log', "[" . date('Y-m-d H:i:s') . "] Output: " . var_export($output, true) . "\n\n", FILE_APPEND);
-
-    return $output;
-}
+  }
 
 
     /**

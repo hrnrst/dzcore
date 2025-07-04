@@ -78,6 +78,8 @@ RUN touch /dz/keys/vnc/config
 RUN chown dz:dz /dz/keys/vnc /dz/keys/vnc/config
 RUN chmod 700 /dz/keys/vnc/config
 
+# SSHPASS
+RUN apt-get update && apt-get install -y sshpass
 
 # storage/framework/views
 RUN mkdir -p /dz/server/storage/framework/views
