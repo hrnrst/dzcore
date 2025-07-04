@@ -81,6 +81,10 @@ RUN chmod 700 /dz/keys/vnc/config
 # SSHPASS
 RUN apt-get update && apt-get install -y sshpass
 
+# ANSIBLE
+RUN apt-get update && apt install ansible -y 
+
+
 # storage/framework/views
 RUN mkdir -p /dz/server/storage/framework/views
 RUN chmod -R 775 /dz/server/storage/framework/views
