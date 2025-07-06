@@ -274,8 +274,8 @@ Route::group(['middleware' => ['auth:api', 'permissions']], function () {
 
         // Subscriptions
         Route::group(['prefix' => 'subscriptions'], function () {
-            Route::get('/liman', [Settings\SubscriptionController::class, 'limanLicense']);
-            Route::post('/liman', [Settings\SubscriptionController::class, 'setLimanLicense']);
+            Route::get('/liman', [Settings\SubscriptionController::class, 'dzLicense']);
+            Route::post('/liman', [Settings\SubscriptionController::class, 'setDzLicense']);
 
             Route::get('/', [Settings\SubscriptionController::class, 'index']);
             Route::get('/{extension}/servers', [Settings\SubscriptionController::class, 'servers']);

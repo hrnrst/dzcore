@@ -191,7 +191,7 @@
             "delete": "Sil",
             "license": {
                 "title": "Lisans Ekle",
-                "description": "Eklentiniz için size HAVELSAN A.Ş. tarafından sağlanan lisansı bu kısma giriniz.",
+                "description": "Eklentiniz için size DZ tarafından sağlanan lisansı bu kısma giriniz.",
                 "form": {
                     "license": "Lisans",
                     "submit": "Ekle",
@@ -557,7 +557,7 @@
             "success": "Lisans başarıyla eklendi.",
             "error": "Lisans eklenirken hata oluştu.",
             "title": "Lisans Ekle",
-            "description": "Eklentiniz için size HAVELSAN A.Ş. tarafından verilen lisansı bu kısma giriniz.",
+            "description": "Eklentiniz için size DZ tarafından verilen lisansı bu kısma giriniz.",
             "license": "Lisans Bilgisi",
             "cancel": "İptal",
             "ok": "Ekle"

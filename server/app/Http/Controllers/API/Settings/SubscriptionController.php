@@ -105,51 +105,72 @@ class SubscriptionController extends Controller
     }
 
     /**
-     * Liman license status
+     * Dz license status
      *
      * @return JsonResponse
      *
      * @throws \Exception
      */
-    public function limanLicense()
+    public function dzLicense()
     {
         $license = License::find('00000000-0000-0000-0000-000000000000');
 
-        if (! $license) {
+        if (! $license || empty($license->license_key)) {
             return response()->json([
-                'message' => 'Lisans anahtarı bulunamadı.',
+                'message' => 'Kayıtlı bir lisans bulunamadı.',
             ], 404);
         }
 
-        $license->data = json_decode(AES256::decrypt($license->data, md5(env('APP_KEY'))));
-
-        return response()->json($license->data);
+        return response()->json([
+            'license_key' => $license->license_key,
+            'updated_at' => $license->updated_at,
+        ]);
     }
 
+
     /**
-     * Set Liman License
+     * Set Dz License
      *
      * @return JsonResponse
      *
      * @throws \Exception
      */
-    public function setLimanLicense(Request $request)
+   public function setDzLicense(Request $request)
     {
-        $license = $request->license;
-        $license = AES256::decrypt($license, md5(env('APP_KEY')));
-        if (! $license) {
+        $request->validate([
+            'license' => 'required|string',
+        ]);
+
+        $licenseKey = $request->license;
+
+        // LicenseBox API üzerinden doğrula
+        $response = Http::withHeaders([
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer ' . config('license.api_key'),
+        ])->post(config('license.api_url'), [
+            'license_key' => $licenseKey,
+            'product_id' => config('license.product_id'),
+            'client_name' => config('license.client_name'),
+        ]);
+
+        $json = $response->json();
+
+        if (!$json || !$json['status']) {
             return response()->json([
-                'license' => 'Lisans anahtarı geçersiz.',
+                'license' => $json['message'] ?? 'Lisans doğrulaması başarısız.',
             ], 422);
         }
 
+        // Doğrulama başarılı, lisansı kaydet
         $license = License::updateOrCreate(
             ['id' => '00000000-0000-0000-0000-000000000000'],
-            ['data' => $request->license]
+            ['license_key' => $licenseKey]
         );
 
-        $license = json_decode(trim(AES256::decrypt($license->data, md5(env('APP_KEY')))));
-
-        return response()->json($license);
+        return response()->json([
+            'message' => 'Lisans başarıyla doğrulandı ve kaydedildi.',
+            'expires_at' => $json['data']['expiry_date'] ?? null,
+        ]);
     }
+
 }
