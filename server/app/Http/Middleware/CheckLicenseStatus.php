@@ -27,7 +27,7 @@ class CheckLicenseStatus
         }
 
         $license = License::find('00000000-0000-0000-0000-000000000000');
-        $licenseKey = $license?->license_key;
+        $licenseKey = $license?->data;
 
         if (!$licenseKey) {
             return response()->view('license.expired', [
