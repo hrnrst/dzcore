@@ -113,7 +113,6 @@ class Distro
 		 $logFile = '/tmp/runsudo_debug.txt';
    		 $timestamp = date('Y-m-d H:i:s');
 	    file_put_contents($logFile, "\n=== runSudo START [$timestamp] ===\n", FILE_APPEND);
-		file_put_contents($logFile, "Input command: " . var_export($command, true) . "\n", FILE_APPEND);
 		file_put_contents($logFile, "Input attributes: " . var_export($attributes, true) . "\n", FILE_APPEND);
 		file_put_contents($logFile, "Engine class: " . (isset(self::$engine) ? self::$engine : 'NOT SET') . "\n", FILE_APPEND);
 
