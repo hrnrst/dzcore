@@ -72,7 +72,7 @@ class CheckLicenseStatus
                 return $response->json();
             });
 
-            if (isset($activeLicenseStatus['status']) || $activeLicenseStatus['status'] == true) {
+            if (isset($activeLicenseStatus['status']) && $activeLicenseStatus['status'] == true) {
                 $status = Cache::remember('licensebox_status', 300, function () use ($licenseKey) {
                             $response = Http::withoutVerifying()->withHeaders([
                                 'LB-API-KEY' => config('license.api_key'),
