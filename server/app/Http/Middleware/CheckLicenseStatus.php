@@ -36,13 +36,18 @@ class CheckLicenseStatus
         }
 
         $status = Cache::remember('licensebox_status', 300, function () use ($licenseKey) {
-            $response = Http::withHeaders([
-                'Authorization' => 'Bearer ' . config('license.api_key')
+            $response = Http::withoutVerifying()->withHeaders([
+                'LB-API-KEY' => config('license.api_key'),
+                'LB-URL'     => request()->getSchemeAndHttpHost(), 
+                'LB-IP'      => request()->ip(),                  
+                'LB-LANG'    => 'english',
+                'Content-Type' => 'application/json',
             ])->post(config('license.api_url'), [
-                'license_key' => $licenseKey,
-                'product_id' => config('license.product_id'),
-                'client_name' => config('license.client_name'),
+                'product_id'   => config('license.product_id'),
+                'license_code' => $licenseKey,
+                'client_name'  => config('license.client_name'),
             ]);
+
 
             return $response->json();
         });
