@@ -28,6 +28,7 @@ class CheckLicenseStatus
 
         $license = License::find('00000000-0000-0000-0000-000000000000');
         $licenseKey = $license?->data;
+        $licenseBeforeActive = $license?->extension_id;
 
         if (!$licenseKey) {
             return response()->json([
@@ -37,7 +38,7 @@ class CheckLicenseStatus
             ], 403);
         }
 
-        $status = Cache::remember('licensebox_status', 300, function () use ($licenseKey) {
+        $status = Cache::remember('licensebox_status', 5, function () use ($licenseKey) {
                     $response = Http::withoutVerifying()->withHeaders([
                         'LB-API-KEY' => config('license.api_key'),
                         'LB-URL'     => request()->getSchemeAndHttpHost(), 
@@ -53,48 +54,55 @@ class CheckLicenseStatus
                 });
 
         if (!isset($status['status']) || $status['status'] !== true) {
-        
-            $activeLicenseStatus = Cache::remember('licensebox_activeStatus', 320, function () use ($licenseKey) {
-                $response = Http::withoutVerifying()->withHeaders([
-                    'LB-API-KEY' => config('license.api_key'),
-                    'LB-URL'     => request()->getSchemeAndHttpHost(), 
-                    'LB-IP'      => request()->ip(),                  
-                    'LB-LANG'    => 'english',
-                    'Content-Type' => 'application/json',
-                ])->post(config('license.active_license_api_url'), [
-                    'verify_type' => 'non_envato',
-                    'product_id'   => config('license.product_id'),
-                    'license_code' => $licenseKey,
-                    'client_name'  => config('license.client_name'),
-                ]);
+            
+            if (licenseBeforeActive != 1000) {
+
+                $activeLicenseStatus = Cache::remember('licensebox_activeStatus', 5, function () use ($licenseKey) {
+                    $response = Http::withoutVerifying()->withHeaders([
+                        'LB-API-KEY' => config('license.api_key'),
+                        'LB-URL'     => request()->getSchemeAndHttpHost(), 
+                        'LB-IP'      => request()->ip(),                  
+                        'LB-LANG'    => 'english',
+                        'Content-Type' => 'application/json',
+                    ])->post(config('license.active_license_api_url'), [
+                        'verify_type' => 'non_envato',
+                        'product_id'   => config('license.product_id'),
+                        'license_code' => $licenseKey,
+                        'client_name'  => config('license.client_name'),
+                    ]);
 
 
-                return $response->json();
-            });
+                    return $response->json();
+                });
 
-            if (isset($activeLicenseStatus['status']) && $activeLicenseStatus['status'] == true) {
-                $status = Cache::remember('licensebox_status', 300, function () use ($licenseKey) {
-                            $response = Http::withoutVerifying()->withHeaders([
-                                'LB-API-KEY' => config('license.api_key'),
-                                'LB-URL'     => request()->getSchemeAndHttpHost(), 
-                                'LB-IP'      => request()->ip(),                  
-                                'LB-LANG'    => 'english',
-                                'Content-Type' => 'application/json',
-                            ])->post(config('license.verify_license_api_url'), [
-                                'product_id'   => config('license.product_id'),
-                                'license_code' => $licenseKey,
-                                'client_name'  => config('license.client_name'),
-                            ]);
-                            return $response->json();
-                        });
-            }
-            else{
+                if (isset($activeLicenseStatus['status']) && $activeLicenseStatus['status'] == true) {
 
-              return response()->json([
-                    'valid' => false,
-                    'reason' => 'no_license',
-                    'message' => $activeLicenseStatus['message'] ?? 'Lisans kontrolü sırasında bir hata oluştu.',
-                ], 403);
+                    $license->extension_id = 1000;
+                    $license->save();   
+                    
+                    $status = Cache::remember('licensebox_status', 5, function () use ($licenseKey) {
+                                $response = Http::withoutVerifying()->withHeaders([
+                                    'LB-API-KEY' => config('license.api_key'),
+                                    'LB-URL'     => request()->getSchemeAndHttpHost(), 
+                                    'LB-IP'      => request()->ip(),                  
+                                    'LB-LANG'    => 'english',
+                                    'Content-Type' => 'application/json',
+                                ])->post(config('license.verify_license_api_url'), [
+                                    'product_id'   => config('license.product_id'),
+                                    'license_code' => $licenseKey,
+                                    'client_name'  => config('license.client_name'),
+                                ]);
+                                return $response->json();
+                            });
+                }
+                else{
+
+                return response()->json([
+                        'valid' => false,
+                        'reason' => 'no_license',
+                        'message' => $activeLicenseStatus['message'] ?? 'Lisans kontrolü sırasında bir hata oluştu.',
+                    ], 403);
+                }
             }
         }
         
