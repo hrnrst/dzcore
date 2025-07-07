@@ -13,5 +13,9 @@ class License extends Model
 {
     use UsesUuid;
 
-    protected $fillable = ['id', 'data', 'extension_id'];
+    protected $fillable = ['id', 'data', 'extension_id', 'activated'];
+
+    protected $casts = [
+        'activated' => 'boolean',
+    ];
 }
