@@ -30,13 +30,12 @@ class CheckLicenseStatus
         $licenseKey = $license?->data;
 
         if (!$licenseKey) {
-                    return [
-                        'valid' => false,
-                        'reason' => 'no_license',
-                        'message' => 'Dz MYS lisansı bulunamadı.',
-                    ];
-                }
-
+            return response()->json([
+                'valid' => false,
+                'reason' => 'no_license',
+                'message' => 'Dz MYS lisansı bulunamadı.',
+            ], 403);
+        }
 
         $status = Cache::remember('licensebox_status', 300, function () use ($licenseKey) {
                     $response = Http::withoutVerifying()->withHeaders([
@@ -91,21 +90,21 @@ class CheckLicenseStatus
             }
             else{
 
-                return [
-                            'valid' => false,
-                            'reason' => 'no_license',
-                            'message' => $activeLicenseStatus['message'] ?? 'Lisans kontrolü sırasında bir hata oluştu.',
-                        ];
+              return response()->json([
+                    'valid' => false,
+                    'reason' => 'no_license',
+                    'message' => $activeLicenseStatus['message'] ?? 'Lisans kontrolü sırasında bir hata oluştu.',
+                ], 403);
             }
         }
         
 
         if (!isset($status['status']) || $status['status'] !== true) {
-            return [
-                        'valid' => false,
-                        'reason' => 'no_license',
-                        'message' => $status['message'] ?? 'Lisans doğrulaması başarısız.',
-                    ];
+           return response()->json([
+                    'valid' => false,
+                    'reason' => 'no_license',
+                    'message' => $status['message'] ?? 'Lisans doğrulaması başarısız.',
+                ], 403);
         }
 
         return $next($request);
