@@ -63,14 +63,6 @@ services:
     networks:
       - dz-net
 
-  webssh:
-    image: limanmys/webssh:latest
-    restart: always
-    user: "0"
-    container_name: dz-webssh
-    networks:
-      - dz-net
-
   guacd:
     image: guacamole/guacd
     container_name: guacd
