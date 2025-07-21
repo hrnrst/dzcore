@@ -61,7 +61,7 @@ services:
     command: >
       --requirepass dz --protected-mode yes
     networks:
-      - dz-netlk
+      - dz-net
 
   guacd:
     image: guacamole/guacd
@@ -158,7 +158,4 @@ volumes:
 networks:
   dz-net:
     name: dz-net
-    driver: bridge
-  dz-netlk:
-    name: dz-netlk
     driver: bridge
