@@ -121,7 +121,7 @@ services:
       REDIS_HOST: awx-redis
     ports:
       - "8043:8052"
-    command: /usr/bin/tini -- /usr/bin/launch_awx
+    command: ["/usr/local/bin/dumb-init", "--", "/usr/local/bin/wait-for-migrations"]
     networks:
       - dz-net
 
