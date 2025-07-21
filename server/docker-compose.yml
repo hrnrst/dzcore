@@ -122,7 +122,7 @@ services:
       AWX_SETTINGS_FILE: /dev/null
     ports:
       - "8043:8052"
-    command: ["/usr/local/bin/dumb-init", "--", "/entrypoint.sh"]
+    command: ["awx-manage", "runserver", "0.0.0.0:8052"]
     networks:
       - dz-net
 
