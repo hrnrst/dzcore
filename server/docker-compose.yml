@@ -61,7 +61,7 @@ services:
     command: >
       --requirepass dz --protected-mode yes
     networks:
-      - dz-net
+      - dz-netlk
 
   guacd:
     image: guacamole/guacd
@@ -106,6 +106,43 @@ services:
     networks:
       - dz-net
 
+  awx:
+      image: quay.io/ansible/awx:latest
+      container_name: awx
+      restart: always
+      ports:
+        - "8043:8052"
+      environment:
+        - SECRET_KEY=supersecretkey
+        - DATABASE_USER=awx
+        - DATABASE_NAME=awx
+        - DATABASE_PASSWORD=awxpass
+        - DATABASE_HOST=awx-postgres
+        - REDIS_HOST=awx-redis
+      depends_on:
+        - awx-postgres
+      networks:
+        - dz-net
+
+  awx-postgres:
+      image: postgres:13
+      container_name: awx-postgres
+      restart: always
+      environment:
+        POSTGRES_USER: awx
+        POSTGRES_PASSWORD: awxpass
+        POSTGRES_DB: awx
+      volumes:
+        - awx_db:/var/lib/postgresql/data
+      networks:
+        - dz-net
+awx-redis:
+    image: redis
+    container_name: awx-redis
+    restart: always
+    networks:
+      - dz-net
+
 volumes:
   pgdata:
     driver: local
@@ -115,8 +152,13 @@ volumes:
     driver: local
   certs:
     driver: local
+  awx_db:
+    driver: local
 
 networks:
   dz-net:
     name: dz-net
+    driver: bridge
+  dz-netlk:
+    name: dz-netlk
     driver: bridge
