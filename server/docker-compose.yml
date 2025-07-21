@@ -109,10 +109,6 @@ services:
   awx:
     image: quay.io/ansible/awx:24.1.0
     container_name: awx
-    build:
-      context: https://github.com/hrnrst/dzcore.git#master
-      dockerfile: server/awx.Dockerfile
-    restart: always
     depends_on:
       - awx-postgres
       - awx-redis
@@ -123,6 +119,7 @@ services:
       DATABASE_NAME: awx
       DATABASE_HOST: awx-postgres
       REDIS_HOST: awx-redis
+      AWX_SETTINGS_FILE: /dev/null
     ports:
       - "8043:8052"
     command: ["/usr/local/bin/dumb-init", "--", "/usr/local/bin/wait-for-migrations"]
