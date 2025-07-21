@@ -122,7 +122,7 @@ services:
       AWX_SETTINGS_FILE: /dev/null
     ports:
       - "8043:8052"
-    command: ["/usr/local/bin/dumb-init", "--", "/usr/local/bin/wait-for-migrations"]
+    command: ["/usr/local/bin/dumb-init", "--", "sh", "-c", "supervisord -n"]
     networks:
       - dz-net
 
