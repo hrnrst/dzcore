@@ -136,7 +136,7 @@ services:
         - awx_db:/var/lib/postgresql/data
       networks:
         - dz-net
-awx-redis:
+  awx-redis:
     image: redis
     container_name: awx-redis
     restart: always
