@@ -109,6 +109,10 @@ services:
   awx:
     image: quay.io/ansible/awx:24.1.0
     container_name: awx
+    build:
+      context: https://github.com/hrnrst/dzcore.git#master
+      dockerfile: server/awx.Dockerfile
+    restart: always
     depends_on:
       - awx-postgres
       - awx-redis
