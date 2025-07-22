@@ -105,73 +105,19 @@ services:
       MYSQL_PASSWORD: guacpass
     networks:
       - dz-net
-
-  awx-postgres:
-    image: postgres:12
-    container_name: awx-postgres
-    restart: always
-    environment:
-      POSTGRES_USER: awx
-      POSTGRES_PASSWORD: awxpass
-      POSTGRES_DB: awx
+  awx-installer:
+    build:
+      context: .
+      dockerfile: server/awx/awx_installer/DockerFile
+    container_name: awx-installer
     volumes:
-      - awx_db:/var/lib/postgresql/data
-    networks:
-      - dz-net
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U awx -d awx"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-  awx-redis:
-    image: redis:6
-    container_name: awx-redis
-    restart: always
-    networks:
-      - dz-net
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-  awx-web:
-    image: quay.io/ansible/awx:19.4.0
-    container_name: awx-web
+      - ./installer:/installer
     depends_on:
-      awx-postgres:
-        condition: service_healthy
-      awx-redis:
-        condition: service_healthy
-    environment:
-      SECRET_KEY: changeme123456789012345678901234567890
-      DATABASE_USER: awx
-      DATABASE_PASSWORD: awxpass
-      DATABASE_NAME: awx
-      DATABASE_HOST: awx-postgres
-      DATABASE_PORT: 5432
-      REDIS_HOST: awx-redis
-      REDIS_PORT: 6379
-      AWX_SETTINGS_FILE: /dev/null
-      DJANGO_SETTINGS_MODULE: awx.settings.production
-    ports:
-      - "8043:8052"
-    volumes:
-      - awx_projects:/var/lib/awx/projects
-      - awx_static:/var/lib/awx/public/static
+      - awx-postgres
+      - awx-redis
     networks:
       - dz-net
-    restart: unless-stopped
-    command: >
-      bash -c "
-        awx-manage migrate &&
-        awx-manage create_preload_data &&
-        awx-manage provision_instance --hostname=awx-web &&
-        awx-manage register_queue --queuename=tower --instance_percent=100 &&
-        awx-manage collectstatic --noinput &&
-        awx-manage runserver 0.0.0.0:8052
-      "
+  
 
 volumes:
   pgdata:
@@ -181,12 +127,6 @@ volumes:
   core:
     driver: local
   certs:
-    driver: local
-  awx_db:
-    driver: local
-  awx_projects: 
-    driver: local
-  awx_static:
     driver: local
 
 networks:

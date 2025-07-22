@@ -1,0 +1,23 @@
+FROM python:3.8-slim
+
+# Sistemi güncelle, gerekli bağımlılıkları yükle
+RUN apt-get update && apt-get install -y \
+    ansible \
+    git \
+    curl \
+    sshpass \
+    tar \
+    gnupg \
+    python3-pip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Installer klasörünü konteynıra kopyala
+WORKDIR /installer
+COPY installer/ /installer/
+
+# install.sh çalıştırılabilir olsun
+RUN chmod +x /installer/install.sh
+
+# Varsayılan komut olarak install.sh çalıştırılsın
+CMD ["bash", "/installer/install.sh"]

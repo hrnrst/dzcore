@@ -113,3 +113,6 @@ chmod +x /dz/server/storage/dzctl
 # Start dz services
 sleep 3;
 /usr/bin/supervisord -c /etc/supervisor/supervisor.conf 
+
+
+chmod +x /dz/server/awx/awx_installer/install.sh
