@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 
 # Installer klasörünü konteynıra kopyala
 WORKDIR /installer
-COPY installer/ /installer/
+COPY server/awx/awx_installer/installer/ /installer/
 
 # install.sh çalıştırılabilir olsun
 RUN chmod +x /installer/install.sh
