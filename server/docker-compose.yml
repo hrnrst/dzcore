@@ -111,7 +111,7 @@ services:
       dockerfile: server/awx/awx_installer/DockerFile
     container_name: awx-installer
     volumes:
-      - server/awx/awx_installer/installer:/installer
+      - ./server/awx/awx_installer/installer:/installer
     depends_on:
       - awx-postgres
       - awx-redis
