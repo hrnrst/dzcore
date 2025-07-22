@@ -114,7 +114,6 @@ services:
       POSTGRES_USER: awx
       POSTGRES_PASSWORD: awxpass
       POSTGRES_DB: awx
-      POSTGRES_INITDB_ARGS: "--auth-host=scram-sha-256"
     volumes:
       - awx_db:/var/lib/postgresql/data
     networks:
