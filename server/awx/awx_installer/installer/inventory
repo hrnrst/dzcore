@@ -5,5 +5,5 @@ admin_user=admin
 admin_password=Awx12345
 postgres_data_dir="/var/lib/pgdocker"
 host_port=8043
-docker_compose_dir=/installer
+docker_compose_dir=installer
 awx_official=true
