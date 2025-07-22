@@ -107,7 +107,7 @@ services:
       - dz-net
 
   awx:
-    image: quay.io/ansible/awx:24.1.0
+    image: quay.io/ansible/awx:21.14.0  # Bu satırı değiştirin
     container_name: awx
     depends_on:
       - awx-postgres
