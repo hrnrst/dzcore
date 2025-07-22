@@ -106,55 +106,71 @@ services:
     networks:
       - dz-net
 
-  awx:
-    image: quay.io/ansible/awx:22.7.0
-    container_name: awx
-    depends_on:
-      - awx-postgres
-      - awx-redis
-    environment:
-      SECRET_KEY: changeme123456789012345678901234567890
-      DATABASE_USER: awx
-      DATABASE_PASSWORD: awxpass
-      DATABASE_NAME: awx
-      DATABASE_HOST: awx-postgres
-      REDIS_HOST: awx-redis
-      AWX_SETTINGS_FILE: /dev/null
-    ports:
-      - "8043:8052"
-    command: >
-      bash -c "
-        echo 'Waiting for PostgreSQL...' &&
-        sleep 15 &&
-        awx-manage migrate &&
-        awx-manage collectstatic --noinput &&
-        echo 'Creating admin user...' &&
-        echo \"from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@example.com', 'admin') if not User.objects.filter(username='admin').exists() else None\" | awx-manage shell &&
-        awx-manage runserver 0.0.0.0:8052
-      "
-    networks:
-      - dz-net
-
-
   awx-postgres:
-    image: postgres:13
+    image: postgres:12
     container_name: awx-postgres
     restart: always
     environment:
       POSTGRES_USER: awx
       POSTGRES_PASSWORD: awxpass
       POSTGRES_DB: awx
+      POSTGRES_INITDB_ARGS: "--auth-host=scram-sha-256"
     volumes:
       - awx_db:/var/lib/postgresql/data
     networks:
       - dz-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U awx -d awx"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   awx-redis:
-    image: redis
+    image: redis:6
     container_name: awx-redis
     restart: always
     networks:
       - dz-net
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  awx-web:
+    image: quay.io/ansible/awx:19.4.0
+    container_name: awx-web
+    depends_on:
+      awx-postgres:
+        condition: service_healthy
+      awx-redis:
+        condition: service_healthy
+    environment:
+      SECRET_KEY: changeme123456789012345678901234567890
+      DATABASE_USER: awx
+      DATABASE_PASSWORD: awxpass
+      DATABASE_NAME: awx
+      DATABASE_HOST: awx-postgres
+      DATABASE_PORT: 5432
+      REDIS_HOST: awx-redis
+      REDIS_PORT: 6379
+    ports:
+      - "8043:8052"
+    volumes:
+      - awx_projects:/var/lib/awx/projects
+      - awx_static:/var/lib/awx/public/static
+    networks:
+      - dz-net
+    restart: unless-stopped
+    command: >
+      bash -c "
+        awx-manage migrate &&
+        awx-manage create_preload_data &&
+        awx-manage provision_instance --hostname=awx-web &&
+        awx-manage register_queue --queuename=tower --instance_percent=100 &&
+        awx-manage collectstatic --noinput &&
+        awx-manage runserver 0.0.0.0:8052
+      "
 
 volumes:
   pgdata:
@@ -167,7 +183,11 @@ volumes:
     driver: local
   awx_db:
     driver: local
-
+  awx_projects: 
+    driver: local
+  awx_static:
+    driver: local
+    
 networks:
   dz-net:
     name: dz-net
