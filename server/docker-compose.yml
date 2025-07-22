@@ -110,6 +110,12 @@ services:
       context: https://github.com/hrnrst/dzcore.git#master
       dockerfile: server/awx.DockerFile
     container_name: awx-installer
+    privileged: true  # Docker için gerekli
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker:ro
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
     depends_on:
       - awx-postgres
       - awx-redis
