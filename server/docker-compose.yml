@@ -146,6 +146,8 @@ volumes:
     driver: local
   certs:
     driver: local
+  awx_pgdata:
+    driver: local
 
 networks:
   dz-net:
