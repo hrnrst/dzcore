@@ -122,13 +122,22 @@ services:
       AWX_SETTINGS_FILE: /dev/null
     ports:
       - "8043:8052"
-    command: ["awx-manage", "runserver", "0.0.0.0:8052"]
+    command: >
+      bash -c "
+        echo 'Waiting for PostgreSQL...' &&
+        sleep 15 &&
+        awx-manage migrate &&
+        awx-manage collectstatic --noinput &&
+        echo 'Creating admin user...' &&
+        echo \"from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@example.com', 'admin') if not User.objects.filter(username='admin').exists() else None\" | awx-manage shell &&
+        awx-manage runserver 0.0.0.0:8052
+      "
     networks:
       - dz-net
 
 
   awx-postgres:
-    image: postgres:13
+    image: postgres:15
     container_name: awx-postgres
     restart: always
     environment:
