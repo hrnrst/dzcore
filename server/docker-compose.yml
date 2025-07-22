@@ -108,7 +108,7 @@ services:
   awx-installer:
     build:
       context: https://github.com/hrnrst/dzcore.git#master
-      dockerfile: server/awx/awx_installer/DockerFile
+      dockerfile: server/awx.DockerFile
     container_name: awx-installer
     depends_on:
       - awx-postgres
