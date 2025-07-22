@@ -154,6 +154,8 @@ services:
       DATABASE_PORT: 5432
       REDIS_HOST: awx-redis
       REDIS_PORT: 6379
+      AWX_SETTINGS_FILE: /dev/null
+      DJANGO_SETTINGS_MODULE: awx.settings.production
     ports:
       - "8043:8052"
     volumes:
@@ -187,7 +189,7 @@ volumes:
     driver: local
   awx_static:
     driver: local
-    
+
 networks:
   dz-net:
     name: dz-net
