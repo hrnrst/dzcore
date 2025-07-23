@@ -21,3 +21,5 @@
   command: "docker tag {{ item }}:{{ awx_version }} {{ item }}:latest"
   with_items:
     - "{{ awx_image }}"
+  when: not skip_build|default(false)|bool
+
