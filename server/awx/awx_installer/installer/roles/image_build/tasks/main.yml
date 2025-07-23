@@ -8,10 +8,14 @@
   template:
     src: Dockerfile.j2
     dest: ../Dockerfile
+  when: not skip_build|default(false)|bool
+
 
 # Calling Docker directly because docker-py doesnt support BuildKit
 - name: Build AWX image
   command: docker build -t {{ awx_image }}:{{ awx_version }} .
+  when: not skip_build|default(false)|bool
+
 
 - name: Tag awx images as latest
   command: "docker tag {{ item }}:{{ awx_version }} {{ item }}:latest"
