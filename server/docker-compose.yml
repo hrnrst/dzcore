@@ -131,8 +131,8 @@ services:
     ports:
       - "8043:8043"
     depends_on:
-      - redis
-      - postgres
+      - awx-redis
+      - awx-postgres
     environment:
       SECRET_KEY: changeme123456789012345678901234567890
       DATABASE_USER: awx
