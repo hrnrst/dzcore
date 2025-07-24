@@ -156,7 +156,7 @@ volumes:
     driver: local
   certs:
     driver: local
-  awx_pgdata:
+  awx_pg_data:
     driver: local
 
 networks:
