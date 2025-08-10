@@ -106,24 +106,70 @@ services:
     networks:
       - dz-net
 
-  semaphore:
-    image: semaphoreui/semaphore:latest
-    container_name: semaphore
+  awx-web:
+    image: ansible/awx:21.14.0
+    container_name: awx-web
     restart: always
-    ports:
-      - "3001:3000"
-    environment:
-      - SEMAPHORE_DB_DIALECT=postgres
-      - SEMAPHORE_DB_HOST=dz-db
-      - SEMAPHORE_DB_PORT=5432
-      - SEMAPHORE_DB_USER=dz
-      - SEMAPHORE_DB_PASS=dz
-      - SEMAPHORE_DB_NAME=semaphore
-      - SEMAPHORE_ADMIN_PASSWORD=admin
-      - SEMAPHORE_ADMIN_NAME=admin
-      - SEMAPHORE_ADMIN_EMAIL=admin@localhost
     depends_on:
-      - db
+      - awx-postgres
+      - awx-redis
+    environment:
+      - SECRET_KEY=awxsecret123456789
+      - DATABASE_NAME=awx
+      - DATABASE_USER=awx
+      - DATABASE_PASSWORD=awxpass
+      - DATABASE_HOST=awx-postgres
+      - DATABASE_PORT=5432
+      - REDIS_HOST=awx-redis
+      - REDIS_PORT=6379
+      - AWX_ADMIN_USER=admin
+      - AWX_ADMIN_PASSWORD=admin123
+    ports:
+      - "8081:8052"
+    volumes:
+      - awx-projects:/var/lib/awx/projects
+    networks:
+      - dz-net
+
+  awx-task:
+    image: ansible/awx:21.14.0
+    container_name: awx-task
+    restart: always
+    depends_on:
+      - awx-postgres
+      - awx-redis
+    environment:
+      - SECRET_KEY=awxsecret123456789
+      - DATABASE_NAME=awx
+      - DATABASE_USER=awx
+      - DATABASE_PASSWORD=awxpass
+      - DATABASE_HOST=awx-postgres
+      - DATABASE_PORT=5432
+      - REDIS_HOST=awx-redis
+      - REDIS_PORT=6379
+    command: /usr/bin/launch_awx_task.sh
+    volumes:
+      - awx-projects:/var/lib/awx/projects
+    networks:
+      - dz-net
+
+  awx-postgres:
+    image: postgres:13
+    container_name: awx-postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=awx
+      - POSTGRES_USER=awx
+      - POSTGRES_PASSWORD=awxpass
+    volumes:
+      - awx-pgdata:/var/lib/postgresql/data
+    networks:
+      - dz-net
+
+  awx-redis:
+    image: redis:6
+    container_name: awx-redis
+    restart: always
     networks:
       - dz-net
 
@@ -135,6 +181,12 @@ volumes:
   core:
     driver: local
   certs:
+    driver: local
+  awx-pgdata:
+    driver: local
+  awx-projects:
+    driver: local
+  awx-job-status:
     driver: local
 
 networks:
