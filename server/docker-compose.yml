@@ -106,6 +106,27 @@ services:
     networks:
       - dz-net
 
+  semaphore:
+    image: semaphoreui/semaphore:latest
+    container_name: semaphore
+    restart: always
+    ports:
+      - "3001:3000"
+    environment:
+      - SEMAPHORE_DB_DIALECT=postgres
+      - SEMAPHORE_DB_HOST=dz-db
+      - SEMAPHORE_DB_PORT=5432
+      - SEMAPHORE_DB_USER=dz
+      - SEMAPHORE_DB_PASS=dz
+      - SEMAPHORE_DB_NAME=semaphore
+      - SEMAPHORE_ADMIN_PASSWORD=admin
+      - SEMAPHORE_ADMIN_NAME=admin
+      - SEMAPHORE_ADMIN_EMAIL=admin@localhost
+    depends_on:
+      - db
+    networks:
+      - dz-net
+
 volumes:
   pgdata:
     driver: local
