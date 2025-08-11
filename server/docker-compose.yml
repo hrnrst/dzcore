@@ -106,92 +106,22 @@ services:
     networks:
       - dz-net
 
-  awx-web:
-    image: geerlingguy/awx_web:latest
-    container_name: awx-web
+  ansible-controller:
+    image: quay.io/ansible/ansible-runner:latest
+    container_name: ansible-controller
     restart: always
-    depends_on:
-      - awx-postgres
-      - awx-memcached
-      - awx-rabbitmq
-    environment:
-      - SECRET_KEY=awxsecret123456789abcdef
-      - DATABASE_NAME=awx
-      - DATABASE_USER=awx
-      - DATABASE_PASSWORD=awxpass
-      - DATABASE_HOST=awx-postgres
-      - DATABASE_PORT=5432
-      - RABBITMQ_USER=awx
-      - RABBITMQ_PASSWORD=awxpass
-      - RABBITMQ_HOST=awx-rabbitmq
-      - RABBITMQ_PORT=5672
-      - RABBITMQ_VHOST=awx
-      - MEMCACHED_HOST=awx-memcached
-      - MEMCACHED_PORT=11211
-    ports:
-      - "8081:8052"
     volumes:
-      - awx-projects:/var/lib/awx/projects
+      - ansible-playbooks:/runner/project
+      - ansible-inventory:/runner/inventory
+      - ansible-artifacts:/runner/artifacts
+      - ansible-ssh-keys:/runner/ssh_keys
     networks:
       - dz-net
-
-  awx-task:
-    image: geerlingguy/awx_task:latest
-    container_name: awx-task
-    restart: always
-    depends_on:
-      - awx-postgres
-      - awx-memcached
-      - awx-rabbitmq
     environment:
-      - SECRET_KEY=awxsecret123456789abcdef
-      - DATABASE_NAME=awx
-      - DATABASE_USER=awx
-      - DATABASE_PASSWORD=awxpass
-      - DATABASE_HOST=awx-postgres
-      - DATABASE_PORT=5432
-      - RABBITMQ_USER=awx
-      - RABBITMQ_PASSWORD=awxpass
-      - RABBITMQ_HOST=awx-rabbitmq
-      - RABBITMQ_PORT=5672
-      - RABBITMQ_VHOST=awx
-      - MEMCACHED_HOST=awx-memcached
-      - MEMCACHED_PORT=11211
-    volumes:
-      - awx-projects:/var/lib/awx/projects
-    networks:
-      - dz-net
-
-  awx-postgres:
-    image: postgres:12
-    container_name: awx-postgres
-    restart: always
-    environment:
-      - POSTGRES_DB=awx
-      - POSTGRES_USER=awx
-      - POSTGRES_PASSWORD=awxpass
-    volumes:
-      - awx-pgdata:/var/lib/postgresql/data
-    networks:
-      - dz-net
-
-  awx-rabbitmq:
-    image: rabbitmq:3.8-management
-    container_name: awx-rabbitmq
-    restart: always
-    environment:
-      - RABBITMQ_DEFAULT_USER=awx
-      - RABBITMQ_DEFAULT_PASS=awxpass
-      - RABBITMQ_DEFAULT_VHOST=awx
-    networks:
-      - dz-net
-
-  awx-memcached:
-    image: memcached:alpine
-    container_name: awx-memcached
-    restart: always
-    networks:
-      - dz-net
+      - ANSIBLE_HOST_KEY_CHECKING=False
+      - ANSIBLE_STDOUT_CALLBACK=json
+    working_dir: /runner
+    command: sleep infinity
 
 volumes:
   pgdata:
@@ -202,11 +132,13 @@ volumes:
     driver: local
   certs:
     driver: local
-  awx-pgdata:
+  ansible-playbooks:
     driver: local
-  awx-projects:
+  ansible-inventory:
     driver: local
-  awx-job-status:
+  ansible-artifacts:
+    driver: local
+  ansible-ssh-keys:
     driver: local
 
 networks:
