@@ -56,6 +56,18 @@ abstract class Task
 	protected $attributes = [];
 
 	/**
+	 * Check if running on Windows/PowerShell
+	 */
+	private function isWindows()
+	{
+		// Test PowerShell availability
+		$test = $this->sudoRequired 
+			? Command::runSudo('powershell.exe -Command "echo test" 2>$null', [])
+			: Command::run('powershell.exe -Command "echo test" 2>$null', []);
+		return !empty(trim($test));
+	}
+
+	/**
 	 * Run the command on background
 	 *
 	 * @return TaskRunStatus
@@ -71,19 +83,39 @@ abstract class Task
 				$this->description
 			);
 		}
-		$status = (bool) $this->command(
-			"nohup bash -c '(echo @{:command} | base64 -d | bash) > @{:logFile} 2>&1 & disown' 2>/dev/null 1>/dev/null && echo 1 || echo 0",
-			[
-				'command' => base64_encode($command),
-				'logFile' => $this->logFile
-			]
-		);
-		$processOutput = $this->command(
-			'cat @{:logFile} && truncate -s 0 @{:logFile} 2> /dev/null',
-			[
-				'logFile' => $this->logFile
-			]
-		);
+		
+		// ✅ Platform independent run command
+		if ($this->isWindows()) {
+			$status = (bool) $this->command(
+				"Start-Process -FilePath 'bash' -ArgumentList '-c', '@{:command}' -RedirectStandardOutput '@{:logFile}' -RedirectStandardError '@{:logFile}' -WindowStyle Hidden; if (\$?) { echo 1 } else { echo 0 }",
+				[
+					'command' => $command,
+					'logFile' => $this->logFile
+				]
+			);
+		} else {
+			$status = (bool) $this->command(
+				"nohup bash -c '(echo @{:command} | base64 -d | bash) > @{:logFile} 2>&1 & disown' 2>/dev/null 1>/dev/null && echo 1 || echo 0",
+				[
+					'command' => base64_encode($command),
+					'logFile' => $this->logFile
+				]
+			);
+		}
+		
+		// ✅ Platform independent log reading
+		if ($this->isWindows()) {
+			$processOutput = $this->command(
+				'if (Test-Path "@{:logFile}") { Get-Content "@{:logFile}"; Clear-Content "@{:logFile}" } else { Write-Output "" }',
+				['logFile' => $this->logFile]
+			);
+		} else {
+			$processOutput = $this->command(
+				'cat @{:logFile} 2>/dev/null && echo "" > @{:logFile} 2>/dev/null',
+				['logFile' => $this->logFile]
+			);
+		}
+		
 		$processStatus = $status
 			? TaskRunStatusEnum::Started
 			: TaskRunStatusEnum::Failed;
@@ -101,10 +133,19 @@ abstract class Task
 	 */
 	public function checkFirst()
 	{
-		$status = (bool) $this->command(
-			'ps aux | grep @{:control} | grep -v grep 2>/dev/null 1>/dev/null && echo 1 || echo 0',
-			['control' => $this->control]
-		);
+		// ✅ Platform independent process check
+		if ($this->isWindows()) {
+			$status = (bool) $this->command(
+				'$processes = Get-Process | Where-Object { $_.ProcessName -like "*@{:control}*" -or $_.CommandLine -like "*@{:control}*" } 2>$null; if ($processes) { echo 1 } else { echo 0 }',
+				['control' => $this->control]
+			);
+		} else {
+			$status = (bool) $this->command(
+				'ps aux | grep @{:control} | grep -v grep 2>/dev/null 1>/dev/null && echo 1 || echo 0',
+				['control' => $this->control]
+			);
+		}
+		
 		$processStatus = $status
 			? TaskCheckStatusEnum::Pending
 			: TaskCheckStatusEnum::Success;
@@ -118,10 +159,19 @@ abstract class Task
 	 */
 	public function check()
 	{
-		$status = (bool) $this->command(
-			'ps aux | grep @{:control} | grep -v grep 2>/dev/null 1>/dev/null && echo 1 || echo 0',
-			['control' => $this->control]
-		);
+		// ✅ Platform independent process check
+		if ($this->isWindows()) {
+			$status = (bool) $this->command(
+				'$processes = Get-Process | Where-Object { $_.ProcessName -like "*@{:control}*" -or $_.CommandLine -like "*@{:control}*" } 2>$null; if ($processes) { echo 1 } else { echo 0 }',
+				['control' => $this->control]
+			);
+		} else {
+			$status = (bool) $this->command(
+				'ps aux | grep @{:control} | grep -v grep 2>/dev/null 1>/dev/null && echo 1 || echo 0',
+				['control' => $this->control]
+			);
+		}
+		
 		$processStatus = $status
 			? TaskCheckStatusEnum::Pending
 			: TaskCheckStatusEnum::Success;
@@ -129,18 +179,36 @@ abstract class Task
 			$this->checkCommand &&
 			$processStatus == TaskCheckStatusEnum::Success
 		) {
-			$status = (bool) $this->command(
-				'bash -c @{:checkCommand} 2>/dev/null 1>/dev/null && echo 1 || echo 0',
-				['checkCommand' => $this->checkCommand]
-			);
+			// ✅ Platform independent command execution
+			if ($this->isWindows()) {
+				$status = (bool) $this->command(
+					'try { @{:checkCommand}; echo 1 } catch { echo 0 }',
+					['checkCommand' => $this->checkCommand]
+				);
+			} else {
+				$status = (bool) $this->command(
+					'bash -c @{:checkCommand} 2>/dev/null 1>/dev/null && echo 1 || echo 0',
+					['checkCommand' => $this->checkCommand]
+				);
+			}
 			$processStatus = $status
 				? TaskCheckStatusEnum::Success
 				: TaskCheckStatusEnum::Failed;
 		}
-		$processOutput = $this->command(
-			'cat @{:logFile} && truncate -s 0 @{:logFile} 2> /dev/null',
-			['logFile' => $this->logFile]
-		);
+		
+		// ✅ Platform independent log reading
+		if ($this->isWindows()) {
+			$processOutput = $this->command(
+				'if (Test-Path "@{:logFile}") { $content = Get-Content "@{:logFile}" -Raw; Clear-Content "@{:logFile}"; Write-Output $content } else { Write-Output "" }',
+				['logFile' => $this->logFile]
+			);
+		} else {
+			$processOutput = $this->command(
+				'cat @{:logFile} 2>/dev/null && echo "" > @{:logFile} 2>/dev/null',
+				['logFile' => $this->logFile]
+			);
+		}
+		
 		if ($processStatus == TaskCheckStatusEnum::Success) {
 			$this->after();
 		}

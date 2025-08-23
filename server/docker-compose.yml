@@ -119,7 +119,6 @@ services:
       - dz-net
     environment:
       - ANSIBLE_HOST_KEY_CHECKING=False
-      - ANSIBLE_STDOUT_CALLBACK=json
     working_dir: /runner
     command: sleep infinity
 
